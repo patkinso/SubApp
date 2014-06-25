@@ -1,0 +1,20 @@
+SubFinder\AppBundle\Entity\FlavorState:
+    type: entity
+    table: flavor_state
+    repositoryClass: SubFinder\AppBundle\Repository\FlavorStateRepository
+
+    fields:
+        id:
+            column: id
+            type: bigint
+            id: true
+            generator:
+                strategy: AUTO
+        shortName:
+            column: short_name
+            type: string
+            length: 16
+        longName:
+            column: long_name
+            type: string
+            length: 64

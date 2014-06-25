@@ -1,0 +1,54 @@
+SubFinder\AppBundle\Entity\Applicant:
+    type: entity
+    table: applicant
+    repositoryClass: SubFinder\AppBundle\Repository\ApplicantRepository
+
+    fields:
+        id:
+            column: id
+            type: bigint
+            id: true
+            generator:
+                strategy: AUTO
+        nameLast:
+            column: name_last
+            type: string
+            length: 64
+        nameFirst:
+            column: name_first
+            type: string
+            length: 64
+        nameMiddle:
+            column: name_middle
+            type: string
+            length: 64
+            nullable: true
+        ssn:
+            column: ssn
+            type: integer
+            # need some special limits on this guy maybe
+
+    oneToOne:
+        location:
+            targetEntity: Location
+            mappedBy: applicant
+
+    oneToMany:
+        application:
+            targetEntity: Application
+            mappedBy: applicant
+        availability:
+            targetEntity: Availability
+            mappedBy: applicant
+        license:
+            targetEntity: License
+            mappedBy: applicant
+        phone:
+            targetEntity: Phone
+            mappedBy: applicant
+
+
+
+    manyToOne:
+        gender:
+            targetEntity: FlavorGender

@@ -1,0 +1,23 @@
+SubFinder\AppBundle\Entity\FlavorAssertion:
+    type: entity
+    table: flavor_assertion
+    repositoryClass: SubFinder\AppBundle\Repository\FlavorAssertionRepository
+
+    fields:
+        id:
+            column: id
+            type: bigint
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            column: name
+            type: string
+            length: 128
+        explanation:
+            column: explanation
+            type: text
+        acceptText:
+            column: accept_text
+            type: string
+            length: 128

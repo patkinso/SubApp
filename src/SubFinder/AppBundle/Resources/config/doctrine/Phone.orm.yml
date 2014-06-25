@@ -1,0 +1,23 @@
+SubFinder\AppBundle\Entity\Phone:
+    type: entity
+    table: phone
+    repositoryClass: SubFinder\AppBundle\Repository\PhoneRepository
+
+    fields:
+        id:
+            column: id
+            type: bigint
+            id: true
+            generator:
+                strategy: AUTO
+        number:
+            column: number
+            type: string
+            lengeth: 16
+
+    manyToOne:
+        phoneType:
+            targetEntity: FlavorPhone
+        applicant:
+            targetEntity: Applicant
+            inversedBy: phone

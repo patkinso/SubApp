@@ -1,0 +1,12 @@
+SubFinder\AppBundle\Entity\Classification:
+    type: entity
+    table: classification
+    repositoryClass: SubFinder\AppBundle\Repository\ClassificationRepository
+
+    fields:
+        id:
+            column: id
+            type: bigint
+            id: true
+            generator:
+                strategy: AUTO

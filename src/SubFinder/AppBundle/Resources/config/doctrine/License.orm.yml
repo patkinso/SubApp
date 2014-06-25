@@ -1,0 +1,31 @@
+SubFinder\AppBundle\Entity\License:
+    type: entity
+    table: license
+    repositoryClass: SubFinder\AppBundle\Repository\LicenseRepository
+
+    fields:
+        id:
+            column: id
+            type: bigint
+            id: true
+            generator:
+                strategy: AUTO
+        licenseNumber:
+            column: license_number
+            type: string
+            length: 64
+        issueDate:
+            column: issue_date
+            type: date
+        expireDate:
+            column: expire_date
+            type: date
+        type:
+            column: type
+            type: string
+            length: 64
+
+    manyToOne:
+        applicant:
+            targetEntity: Applicant
+            inversedBy: license

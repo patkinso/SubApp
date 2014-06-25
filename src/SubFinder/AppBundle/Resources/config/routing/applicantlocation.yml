@@ -1,0 +1,30 @@
+applicantlocation:
+    pattern:  /
+    defaults: { _controller: "SubFinderAppBundle:ApplicantLocation:index" }
+
+applicantlocation_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SubFinderAppBundle:ApplicantLocation:show" }
+
+applicantlocation_new:
+    pattern:  /new
+    defaults: { _controller: "SubFinderAppBundle:ApplicantLocation:new" }
+
+applicantlocation_create:
+    pattern:  /create
+    defaults: { _controller: "SubFinderAppBundle:ApplicantLocation:create" }
+    requirements: { _method: post }
+
+applicantlocation_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SubFinderAppBundle:ApplicantLocation:edit" }
+
+applicantlocation_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "SubFinderAppBundle:ApplicantLocation:update" }
+    requirements: { _method: post|put }
+
+applicantlocation_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "SubFinderAppBundle:ApplicantLocation:delete" }
+    requirements: { _method: post|delete }

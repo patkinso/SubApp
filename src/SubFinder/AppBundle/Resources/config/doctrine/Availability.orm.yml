@@ -1,0 +1,25 @@
+SubFinder\AppBundle\Entity\Availability:
+    type: entity
+    table: availability
+    repositoryClass: SubFinder\AppBundle\Repository\AvailabilityRepository
+
+    fields:
+        id:
+            column: id
+            type: bigint
+            id: true
+            generator:
+                strategy: AUTO
+        start:
+            column: start
+            type: time
+        stop:
+            column: stop
+            type: time
+
+    manyToOne:
+        applicant:
+            targetEntity: Applicant
+            inversedBy: availability
+        day:
+            targetEntity: FlavorDay

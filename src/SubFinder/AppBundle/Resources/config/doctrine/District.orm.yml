@@ -1,0 +1,30 @@
+SubFinder\AppBundle\Entity\District:
+    type: entity
+    table: District
+    repositoryClass: SubFinder\AppBundle\Repository\DistrictRepository
+
+    fields:
+        id:
+            column: id
+            type: bigint
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            column: name
+            type: string
+            length: 64
+
+#A site can appear in more than one district
+    manyToMany:
+        site:
+            targetEntity: Site
+            inversedBy: district
+            joinTable:
+                name: districts_sites
+                joinColumns:
+                    district_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    site_id:
+                        referencedColumnName: id

@@ -1,0 +1,22 @@
+SubFinder\AppBundle\Entity\Assertion:
+    type: entity
+    table: assertion
+    repositoryClass: SubFinder\AppBundle\Repository\AssertionRepository
+
+    fields:
+        id:
+            column: id
+            type: bigint
+            id: true
+            generator:
+                strategy: AUTO
+        OKClicked:
+            column: ok_clicked
+            type: boolean
+            default: false
+
+    manyToOne:
+        assertion:
+            targetEntity: FlavorAssertion
+        application:
+            targetEntity: Application

@@ -1,0 +1,46 @@
+SubFinder\AppBundle\Entity\Site:
+    type: entity
+    table: site
+    repositoryClass: SubFinder\AppBundle\Repository\SiteRepository
+
+    fields:
+        id:
+            column: id
+            type: bigint
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            column: name
+            type: string
+            length: 128
+        alternativeEducation:
+            column: alternative_education
+            type: boolean
+        bloodbornePathogenClassRegistrationRequired:
+            column: bbp_registration
+            type: boolean
+        specialEducation:
+            column: special_education
+            type: boolean
+
+    oneToOne:
+        location:
+            targetEntity: Location
+            mappedBy: site
+
+#A site can appear in more than one district
+    manyToMany:
+        district:
+            targetEntity: District
+            mappedBy: site
+        position:
+            targetEntity: Position
+            joinTable:
+                name: sites_positions
+                joinColumns:
+                    application_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    subject_id:
+                        referencedColumnName: id

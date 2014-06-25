@@ -1,0 +1,49 @@
+SubFinder\AppBundle\Entity\Application:
+    type: entity
+    table: application
+    repositoryClass: SubFinder\AppBundle\Repository\ApplicationRepository
+
+    fields:
+        id:
+            column: id
+            type: bigint
+            id: true
+            generator:
+                strategy: AUTO
+
+    manyToOne:
+        applicant:
+            targetEntity: Applicant
+            inversedBy: application
+
+    manyToMany:
+        site:
+            targetEntity: Site
+            joinTable:
+                name: applications_sites
+                joinColumns:
+                    application_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    site_id:
+                        referencedColumnName: id
+        subject:
+            targetEntity: Subject
+            joinTable:
+                name: applications_subjects
+                joinColumns:
+                    application_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    subject_id:
+                        referencedColumnName: id
+        position:
+            targetEntity: Position
+            joinTable:
+                name: applications_positions
+                joinColumns:
+                    application_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    subject_id:
+                        referencedColumnName: id

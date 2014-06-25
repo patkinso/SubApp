@@ -1,0 +1,31 @@
+sub_finder_app_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: SubFinderAppBundle:Default:index }
+
+SubFinderAppBundle_applicant:
+    resource: "@SubFinderAppBundle/Resources/config/routing/applicant.yml"
+    prefix:   /applicant
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+parameters:
+#    sub_finder_app.example.class: SubFinder\AppBundle\Example
+
+services:
+#    sub_finder_app.example:
+#        class: %sub_finder_app.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
