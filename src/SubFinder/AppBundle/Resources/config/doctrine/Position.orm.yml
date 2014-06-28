@@ -14,3 +14,18 @@ SubFinder\AppBundle\Entity\Position:
             column: name
             type: string
             length: 64
+        lisenceRequired:
+            column: license_required
+            type: boolean
+
+    manyToMany:
+        # A Position can be incompatible with several others and several others can be incompatible with it
+        incompatibleWith:
+            column: incompatible_with
+            targetEntity: Position
+            inversedBy: incompatible_to
+            nullable: true
+        incompatibleTo:
+            column: incompatible_to
+            targetEntity: Position
+            mappedBy: incompatible_with

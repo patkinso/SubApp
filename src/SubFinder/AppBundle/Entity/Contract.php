@@ -5,9 +5,9 @@ namespace SubFinder\AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * FlavorAssertion
+ * Contract
  */
-class FlavorAssertion
+class Contract
 {
     /**
      * @var integer
@@ -44,7 +44,7 @@ class FlavorAssertion
      * Set name
      *
      * @param string $name
-     * @return FlavorAssertion
+     * @return Contract
      */
     public function setName($name)
     {
@@ -67,7 +67,7 @@ class FlavorAssertion
      * Set explanation
      *
      * @param string $explanation
-     * @return FlavorAssertion
+     * @return Contract
      */
     public function setExplanation($explanation)
     {
@@ -90,7 +90,7 @@ class FlavorAssertion
      * Set acceptText
      *
      * @param string $acceptText
-     * @return FlavorAssertion
+     * @return Contract
      */
     public function setAcceptText($acceptText)
     {

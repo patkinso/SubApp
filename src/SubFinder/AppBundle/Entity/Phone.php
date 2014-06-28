@@ -29,6 +29,11 @@ class Phone
      */
     private $applicant;
 
+    /**
+     * @var \SubFinder\AppBundle\Entity\Applicant
+     */
+    private $site;
+
 
     /**
      * Get id
@@ -107,5 +112,28 @@ class Phone
     public function getApplicant()
     {
         return $this->applicant;
+    }
+
+    /**
+     * Set site
+     *
+     * @param \SubFinder\AppBundle\Entity\Applicant $site
+     * @return Phone
+     */
+    public function setSite(\SubFinder\AppBundle\Entity\Applicant $site = null)
+    {
+        $this->site = $site;
+
+        return $this;
+    }
+
+    /**
+     * Get site
+     *
+     * @return \SubFinder\AppBundle\Entity\Applicant 
+     */
+    public function getSite()
+    {
+        return $this->site;
     }
 }

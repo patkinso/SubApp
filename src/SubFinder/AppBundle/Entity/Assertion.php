@@ -20,7 +20,7 @@ class Assertion
     private $OKClicked;
 
     /**
-     * @var \SubFinder\AppBundle\Entity\FlavorAssertion
+     * @var \SubFinder\AppBundle\Entity\Contract
      */
     private $assertion;
 
@@ -66,10 +66,10 @@ class Assertion
     /**
      * Set assertion
      *
-     * @param \SubFinder\AppBundle\Entity\FlavorAssertion $assertion
+     * @param \SubFinder\AppBundle\Entity\Contract $assertion
      * @return Assertion
      */
-    public function setAssertion(\SubFinder\AppBundle\Entity\FlavorAssertion $assertion = null)
+    public function setAssertion(\SubFinder\AppBundle\Entity\Contract $assertion = null)
     {
         $this->assertion = $assertion;
 
@@ -79,7 +79,7 @@ class Assertion
     /**
      * Get assertion
      *
-     * @return \SubFinder\AppBundle\Entity\FlavorAssertion 
+     * @return \SubFinder\AppBundle\Entity\Contract 
      */
     public function getAssertion()
     {

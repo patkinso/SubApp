@@ -25,15 +25,26 @@ SubFinder\AppBundle\Entity\Site:
             type: boolean
 
     oneToOne:
+        # a Site has one location
         location:
             targetEntity: Location
             mappedBy: site
+            nullable: false
 
-#A site can appear in more than one district
+    oneToMany:
+        # a Site has one or more Phones
+        phone:
+            targetEntity: Phone
+            mappedBy: site
+            nullable: false
+
     manyToMany:
+        # a Site is in at least one District
         district:
             targetEntity: District
             mappedBy: site
+            nullable: false
+        # a Site can have multiple openings for Positions
         position:
             targetEntity: Position
             joinTable:

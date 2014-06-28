@@ -1,6 +1,6 @@
 SubFinder\AppBundle\Entity\District:
     type: entity
-    table: District
+    table: district
     repositoryClass: SubFinder\AppBundle\Repository\DistrictRepository
 
     fields:
@@ -15,8 +15,8 @@ SubFinder\AppBundle\Entity\District:
             type: string
             length: 64
 
-#A site can appear in more than one district
     manyToMany:
+        # a District can contain multiple Sites
         site:
             targetEntity: Site
             inversedBy: district

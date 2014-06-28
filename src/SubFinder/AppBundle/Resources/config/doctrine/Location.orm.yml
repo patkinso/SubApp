@@ -27,29 +27,25 @@ SubFinder\AppBundle\Entity\Location:
             type: string
             length: 16
 
-# Is this the appropriate way to creat optional oneToManys? Making them nullable on the owner end that is.
+# Is this the appropriate way to create optional oneToManys? Making them nullable on the owner end that is.
 # A location can presently be attached to BOTH a site and an applicant. I dont like this, I would like a
 # location to own EITHER an applicant or a site, never both. An applicant could still live at a site by
 # having two Location entries with the same fields.
     oneToOne:
+        # a Location can have an Applicant it's tied to, as the Applicant's address
         applicant:
-            nullable: true
             targetEntity: Applicant
             inversedBy: location
-            joinColumn:
-                applicant_id:
-                    referencedColumnName: id
-        site:
             nullable: true
+        # a Location can have a Site it's tied to, as the address. It should only be tied to either and applicant or a site
+        site:
             targetEntity: Site
             inversedBy: location
-            joinColumn:
-                site_id:
-                    referencedColumnName: id
+            nullable: true
 
 
     manyToOne:
+        # a Location is in a state
         state:
             targetEntity: FlavorState
-            joinColumn:
-                name: state_id
+            nullable: false

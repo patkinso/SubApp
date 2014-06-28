@@ -30,9 +30,14 @@ class Applicant
     private $nameMiddle;
 
     /**
-     * @var integer
+     * @var string
      */
     private $ssn;
+
+    /**
+     * @var string
+     */
+    private $email;
 
     /**
      * @var \SubFinder\AppBundle\Entity\Location
@@ -43,11 +48,6 @@ class Applicant
      * @var \Doctrine\Common\Collections\Collection
      */
     private $application;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $availability;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -70,7 +70,6 @@ class Applicant
     public function __construct()
     {
         $this->application = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->availability = new \Doctrine\Common\Collections\ArrayCollection();
         $this->license = new \Doctrine\Common\Collections\ArrayCollection();
         $this->phone = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -157,7 +156,7 @@ class Applicant
     /**
      * Set ssn
      *
-     * @param integer $ssn
+     * @param string $ssn
      * @return Applicant
      */
     public function setSsn($ssn)
@@ -170,11 +169,34 @@ class Applicant
     /**
      * Get ssn
      *
-     * @return integer 
+     * @return string 
      */
     public function getSsn()
     {
         return $this->ssn;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return Applicant
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 
     /**
@@ -231,39 +253,6 @@ class Applicant
     public function getApplication()
     {
         return $this->application;
-    }
-
-    /**
-     * Add availability
-     *
-     * @param \SubFinder\AppBundle\Entity\Availability $availability
-     * @return Applicant
-     */
-    public function addAvailability(\SubFinder\AppBundle\Entity\Availability $availability)
-    {
-        $this->availability[] = $availability;
-
-        return $this;
-    }
-
-    /**
-     * Remove availability
-     *
-     * @param \SubFinder\AppBundle\Entity\Availability $availability
-     */
-    public function removeAvailability(\SubFinder\AppBundle\Entity\Availability $availability)
-    {
-        $this->availability->removeElement($availability);
-    }
-
-    /**
-     * Get availability
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getAvailability()
-    {
-        return $this->availability;
     }
 
     /**

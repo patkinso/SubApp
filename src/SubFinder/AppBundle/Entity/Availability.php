@@ -25,9 +25,9 @@ class Availability
     private $stop;
 
     /**
-     * @var \SubFinder\AppBundle\Entity\Applicant
+     * @var \SubFinder\AppBundle\Entity\Application
      */
-    private $applicant;
+    private $application;
 
     /**
      * @var \SubFinder\AppBundle\Entity\FlavorDay
@@ -92,26 +92,26 @@ class Availability
     }
 
     /**
-     * Set applicant
+     * Set application
      *
-     * @param \SubFinder\AppBundle\Entity\Applicant $applicant
+     * @param \SubFinder\AppBundle\Entity\Application $application
      * @return Availability
      */
-    public function setApplicant(\SubFinder\AppBundle\Entity\Applicant $applicant = null)
+    public function setApplication(\SubFinder\AppBundle\Entity\Application $application = null)
     {
-        $this->applicant = $applicant;
+        $this->application = $application;
 
         return $this;
     }
 
     /**
-     * Get applicant
+     * Get application
      *
-     * @return \SubFinder\AppBundle\Entity\Applicant 
+     * @return \SubFinder\AppBundle\Entity\Application 
      */
-    public function getApplicant()
+    public function getApplication()
     {
-        return $this->applicant;
+        return $this->application;
     }
 
     /**

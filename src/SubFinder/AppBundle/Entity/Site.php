@@ -42,6 +42,11 @@ class Site
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
+    private $phone;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
     private $district;
 
     /**
@@ -54,6 +59,7 @@ class Site
      */
     public function __construct()
     {
+        $this->phone = new \Doctrine\Common\Collections\ArrayCollection();
         $this->district = new \Doctrine\Common\Collections\ArrayCollection();
         $this->position = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -181,6 +187,39 @@ class Site
     public function getLocation()
     {
         return $this->location;
+    }
+
+    /**
+     * Add phone
+     *
+     * @param \SubFinder\AppBundle\Entity\Phone $phone
+     * @return Site
+     */
+    public function addPhone(\SubFinder\AppBundle\Entity\Phone $phone)
+    {
+        $this->phone[] = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Remove phone
+     *
+     * @param \SubFinder\AppBundle\Entity\Phone $phone
+     */
+    public function removePhone(\SubFinder\AppBundle\Entity\Phone $phone)
+    {
+        $this->phone->removeElement($phone);
+    }
+
+    /**
+     * Get phone
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPhone()
+    {
+        return $this->phone;
     }
 
     /**

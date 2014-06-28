@@ -13,25 +13,31 @@ SubFinder\AppBundle\Entity\Subject:
         name:
             column: name
             type: string
-            length: 128
+            length: 64
         alternativeEducation:
             column: alternative_education
             type: boolean
+            default: integer(0)
         bloodbornePathogenClassRegistrationRequired:
             column: bbp_registration
             type: boolean
+            default: integer(0)
         specialEducation:
             column: special_education
             type: boolean
+            default: integer(0)
         interviewRequired:
             column: interview_required
             type: boolean
+            default: integer(0)
 
     manyToOne:
-        area:
-            targetEntity: FlavorSubject
+        # A Subject must belong to a Subject Group
+        group:
+            targetEntity: FlavorSubjectGroup
 
     manyToMany:
+        # A Subject can be requested for multiple Positions
         position:
             targetEntity: Position
             joinTable:

@@ -25,30 +25,43 @@ SubFinder\AppBundle\Entity\Applicant:
             nullable: true
         ssn:
             column: ssn
-            type: integer
-            # need some special limits on this guy maybe
+            type: string
+            length: 16
+# Need some special limits on ssn maybe. Security?
+        email:
+            column: email
+            type: string
+            length: 64
+
+# The Applicant owns all but one of it's relationships because it's created first
+# other Entities will relate back to it.
 
     oneToOne:
+        # an Applicant has a Location where they live
         location:
             targetEntity: Location
             mappedBy: applicant
+            nullable: false
 
     oneToMany:
+        # an Applicant has one or more Applications
         application:
             targetEntity: Application
             mappedBy: applicant
-        availability:
-            targetEntity: Availability
-            mappedBy: applicant
+            nullable: true
+        # an Applicant may have one or more Lisences
         license:
             targetEntity: License
             mappedBy: applicant
+            nullable: true
+        # an Applicant has at least one Phone
         phone:
             targetEntity: Phone
             mappedBy: applicant
-
-
+            nullable: false
 
     manyToOne:
+        # an Applicant has one gender
         gender:
             targetEntity: FlavorGender
+            nullable: false

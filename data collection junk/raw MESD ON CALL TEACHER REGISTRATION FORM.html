@@ -1,0 +1,810 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="Content-Language" content="en">
+        <meta name="generator" content="Bluefish 1.0.7">
+        <title>MESD ON CALL TEACHER REGISTRATION FORM</title>
+
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <!--
+        <link rel="stylesheet" href="css/datepicker.css" type="text/css">
+
+        <link rel="stylesheet" href="jquery/ui.all.css" type="text/css">
+
+        <script type="text/javascript" src="jquery/jquery-1.3.2.js"></script>
+        <script type="text/javascript" src="jquery/ui.core.js"></script>
+        <script type="text/javascript" src="jquery/ui.tabs.js"></script>
+
+        <script type="text/javascript" src="jquery/date.js"></script>
+        <script type="text/javascript" src="jquery/jquery.datePicker.js"></script>
+
+
+        <script  type="text/javascript" src="jquery/jquery.dialog-confirm.js"></script>
+        -->
+        <link   rel ="stylesheet"
+                href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
+                type="text/css" media="all"
+        />
+        <script type="text/javascript"
+                src ="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js">
+        </script>
+        <script type="text/javascript"
+                src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js">
+        </script>
+        <script type="text/javascript" src="js/registration.js"></script>
+        <script type="text/javascript" src="jquery/jquery.validate.js"></script>
+    </head>
+
+    <body onLoad = "clearForms();">
+    <form name="registerationform" id="registerationform" method="post" action="index.php" onsubmit="return validate_form(this);">
+
+      <table id = "maintable">
+       <tr><td class="header_class" colspan="2"><img src="images/header_img.gif" alt="MESD"></td></tr>
+       <tr>
+         <td class="side_class">
+            <div class="verticalbar"><a href="http://www.mesd.k12.or.us/"> MESD Home</a></div>
+        </td>
+        <td class="middle_class">
+            <div class="tabs" id="tabs" >
+                <ul>
+                    <li><a href="#personalinfotab"><span class="tabclass">Personal Info</span></a></li>
+                    <li><a href="#worktab"><span class="tabclass">Work Availability</span></a></li>
+                    <li><a href="#locationtab"><span class="tabclass">Location Availability</span></a></li>
+                    <li><a href="#subjecttab"><span class="tabclass">Subject Availability </span></a></li>
+                    <li><a href="#certtab"><span class="tabclass">Certify</span></a></li>
+                </ul>
+                <div id="formValidError"></div>
+                <div id="personalinfotab" class="personalinfotab">
+
+                <div id="confirmContinue">
+                    <p>Continue?</p>
+                    <p><input type="button" onclick="answer(true)" value="Ok">
+                       <input type="button" onclick="answer(false)" value="Cancel">
+                    </p>
+                </div>
+
+                    <table id="personal_info_table">
+                     <tr>
+                     <td colspan="2" class="heading1">
+                        <div class="top_title">MESD ON CALL REGISTRATION PROFILE FORM for New Substitutes</div>
+                    </td>
+                    </tr>
+
+
+                     <tr><td colspan="2"> &nbsp;</td></tr>
+
+                     <tr>
+                        <td>Last Name: </td><td><input type="text" name="txtLname" id="txtLname" size="20"></td>
+                     </tr>
+                     <tr>
+                        <td>First Name: </td><td><input type="text" name="txtFname" id="txtFname" size="20"></td>
+                     </tr>
+                     <tr>
+                        <td>SS#:<span class="optional">(111111111)</span>
+                                <span><img src="images/help_image.jpeg" width="15" height="15" alt="Why SSN is required?" title="why SSN is required?"
+                                onClick="window.open('docs/ssn_required.txt','mywindow','width=370,height=150')">
+                                </span>
+                        </td>
+                        <td><input type="password" name="txtSSN" id="txtSSN" size="9" maxlength="9"></td>
+                     </tr>
+                     <tr>
+                        <td>Birthdate:</td>
+                        <td class="birthdate"><input type="text" name="txtBDate" value="" readonly="readonly" id="txtBDate" size="10" maxlength="10" title="Choose Date" class="date-pick dp-applied"></td>
+                     </tr>
+                     <tr>
+                        <td>Address:</td><td> <input type="text" name="txtAddr1" id="txtAddr1" size="20" maxlength="30"></td>
+                     </tr>
+                     <tr>
+                        <td>City:</td><td><input type="text" name="txtCity"  id="txtCity" size="20" maxlength="20"></td>
+                     </tr>
+                     <tr>
+                        <td>Zip:</td><td><input type="text" name="txtZip" id="txtZip" size="5" maxlength="5"></td>
+                     </tr>
+                     <tr>
+                        <td>State:</td>
+                        <td class="state_selected">
+                            <!-- 50 states of USA -->
+                            <select name="state" id="state" size="1">
+                                <option value="" selected="selected">Please Select</option>
+                                <option value="OR">Oregon</option>
+                                <option value="WA">Washington</option>
+                                <option value="" >-----------</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AL">Alabama</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="AS">American Samoa</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorada</option>
+                                <option value="CT">Conneticut</option>
+                                <option value="DC">District of Colombia</option>
+                                <option value="DE">Delaware</option>
+                                <option value="FL">Florida</option>
+                                <option value="FM">Federated States</option>
+                                <option value="GA">Georgia</option>
+                                <option value="GU">Guam</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="IA">Iowa</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MD">Maryland</option>
+                                <option value="ME">Maine</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MT">Montana</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NY">New York</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="PR">Puerto Rico</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VI">Virgin Islands</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WY">Wyoming</option>
+                                <option value="XX">Other...</option>
+                            </select>
+                            <!-- end of 50 states of USA -->
+                            <!-- adjusted to OR and WA near top and OR is default   -->
+                            <!-- Dave Lighthart Apr 25 2012                         -->
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Email Address:</td>
+                        <td><input type="text" name="txtEmail" id="txtEmail" size="20" ></td>
+                    </tr>
+
+                    <tr>
+                        <td class="td_one"><span>Phone1:</span><span class="optional">(9999999999)</span>
+                        </td>
+                        <td >
+                            <span class="ph1">
+                                  <input type="text" name="txtPhone1" id="txtPhone1" size="10" maxlength="10">
+                                  <select name="ph_cd1" id="ph_cd1">
+                                    <option value="CL">Cell</option>
+                                    <option value="HO">Home</option>
+                                    <option value="WO">Work</option>
+                                    <option value="MS">Message</option>
+                                  </select>
+                                    <!-- put cellphone first in this list,  -->
+                                    <!-- home first in optional list        -->
+                                    <!-- Dave Lighthart Apr 25 2012         -->
+                            </span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="td_one"><span>Phone2:</span><span class="optional">(Optional)</span>
+                        </td>
+                        <td >
+                            <span class="ph2">
+                                 <input type="text" name="txtPhone2" id="txtPhone2" size="10" maxlength="10">
+
+                                 <select name="ph_cd2" id="ph_cd2">
+                                    <option value="HO">Home</option>
+                                    <option value="CL">Cell</option>
+                                    <option value="WO">Work</option>
+                                    <option value="MS">Message</option>
+                                 </select>
+                            </span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Gender:</td>
+                        <td class='gender_selected'>
+                            <select name="gender">
+                                <option value="" >Please Select</option>
+                                <option value="F">F</option>
+                                <option value="M">M</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr><td class="position" >Position applying for:</td><td></td></tr>
+
+                    <tr><td class="position_apply" colspan="2">
+                            <br>
+                            <input id="classCheckBox"   type="checkbox" name="chbxposition[]" value="Classified" />
+                            <label for="classCheckBox">Classified (nonlicensed)</label>
+                            <br>
+                            <input id="teacherCheckBox" type="checkbox" name="chbxposition[]" value="Teacher">
+                            <label for="teacherCheckBox">Teacher (certified licensed)</label>
+                            <br>
+                            <input id="nurseCheckBox"   type="checkbox" name="chbxposition[]" value="Nurse">
+                            <label for="nurseCheckBox">Nurse / Licensed Practical Nurse</label>
+                            <!-- middle table to clean up layout a little   -->
+                            <!-- and request cosemtic changes               -->
+                            <!-- Dave Lighthart Apr 25 2012                 -->
+
+                        </td>
+                    </tr>
+                    <tr><td colspan="2">
+                        <div class="hrblock" id="hrblock">
+                         <fieldset id="fshrblock">
+                            <legend>Licensing</legend>
+                            <table id="licensetable">
+                                <tr>
+                                    <td class="td_hr_one">License No: </td>
+                                    <td><input type="text" name="txtTchrLcns" id="txtTchrLcns" size="10"></td>
+                                </tr>
+                                <tr>
+                                    <td class="td_hr_one">Issue Date:</td>
+                                    <td class="issuedate"><input type="text" readonly="readonly" name="txtIssueDt" id="txtIssueDt" size="10" maxlength="10" title="Choose Date" class="date-pick dp-applied"></td>
+                                </tr>
+                                <tr>
+                                    <td class="td_hr_one">Expiration Date:</td>
+                                    <td class="expiredate"><input type="text" readonly="readonly" name="txtExpDt" id="txtExpDt" size="10" maxlength="10" title="Choose Date" class="date-pick dp-applied"></td>
+                                </tr>
+                                <tr>
+                                    <td class="td_hr_one">License Type:
+                                        <div class="optional">(exactly as printed on license)</div>
+                                    </td>
+                                    <td><input type="text" name="txtLicType" id="txtLicType" size="20" maxlength="30"></td>
+                                </tr>
+                                    <!--
+                                    <tr>
+                                    <td class="td_hr_one">Endorsements and Authorizations#:
+                                        <div class="optional">(exactly as printed on license)</div>
+                                    </td>
+                                    <td><input type="text" name="txtEndrAuth" id="txtEndrAuth" size="20" maxlength="80"></td>
+                                </tr>
+                                    -->
+                            </table>
+                             </fieldset>
+                         </div>
+
+                        </td>
+                     </tr>
+                </table>
+                </div> <!--  end of div class="personalinfotab" -->
+                <div id="worktab" class="worktab">
+                    <table id="work_availablity_table" >
+                        <tr><td colspan="2" class="heading1">Work Availability:</td></tr>
+                        <tr><td colspan="2">&nbsp;</td></tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="fulltimer" id="fulltimer">
+                                    <span class='chboxcol'><input type="checkbox" name="chBxFT" id="chBxFT" value="fulltime"></span> &nbsp;
+                                    Check here, if you are available to work all time periods below.
+
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr><td colspan="2">&nbsp;</td></tr>
+                        <tr>
+                            <td colspan="2">
+                                <div id = "to_hide_workhrs" class="to_hide_workhrs">
+                                        <div>If you are available part of the week, check only the days/time periods you</div>
+                                        <div>are available. Most school hours are between 7:00 a.m. and 4:00 p.m.</div>
+                                        <div>Selecting a day without selecting times defaults to all day.</div>
+
+                                    <div class="parttimer" id="parttimer">
+
+<table id="work_hr_table">
+    <!-- MONDAY WORK TIME -->
+    <tr>
+        <td>
+            <span class='chboxcol'><input type="checkbox" name="parttime[]"  value="Monday"></span>
+        </td>
+        <td class='day'> Monday</td>
+        <td class='timer'>
+            <select name="mon_start_time" id="mon_start_time">Start Time
+                <option value="7:00">Start Time</option>
+                <option value='7:00'>7:00</option><option value='7:30'>7:30</option><option value='8:00'>8:00</option><option value='8:30'>8:30</option><option value='9:00'>9:00</option><option value='9:30'>9:30</option><option value='10:00'>10:00</option><option value='10:30'>10:30</option><option value='11:00'>11:00</option><option value='11:30'>11:30</option><option value='12:00'>12:00</option><option value='12:30'>12:30</option><option value='13:00'>13:00</option><option value='13:30'>13:30</option><option value='14:00'>14:00</option><option value='14:30'>14:30</option><option value='15:00'>15:00</option><option value='15:30'>15:30</option>            </select>
+        </td>
+        <td class="timer">
+            <select name="mon_end_time" id="mon_end_time" >
+                <option value="16:00">End Time</option>
+                <option value='7:30'>7:30</option><option value='8:00'>8:00</option><option value='8:30'>8:30</option><option value='9:00'>9:00</option><option value='9:30'>9:30</option><option value='10:00'>10:00</option><option value='10:30'>10:30</option><option value='11:00'>11:00</option><option value='11:30'>11:30</option><option value='12:00'>12:00</option><option value='12:30'>12:30</option><option value='13:00'>13:00</option><option value='13:30'>13:30</option><option value='14:00'>14:00</option><option value='14:30'>14:30</option><option value='15:00'>15:00</option><option value='15:30'>15:30</option><option value='16:00'>16:00</option>          </select>
+        </td>
+    </tr>
+    <!-- END OF MONDAY WORK TIME -->
+    <!-- TUESDAY WORK TIME-->
+    <tr>
+        <td>
+            <span class='chboxcol'><input type="checkbox" name="parttime[]"  value="Tuesday"></span>
+        </td>
+        <td class='day'> Tuesday</td>
+        <td class='timer'>
+            <select name="tues_start_time" id="tues_start_time" >
+                <option value="7:00">Start Time</option>
+                <option value='7:00'>7:00</option><option value='7:30'>7:30</option><option value='8:00'>8:00</option><option value='8:30'>8:30</option><option value='9:00'>9:00</option><option value='9:30'>9:30</option><option value='10:00'>10:00</option><option value='10:30'>10:30</option><option value='11:00'>11:00</option><option value='11:30'>11:30</option><option value='12:00'>12:00</option><option value='12:30'>12:30</option><option value='13:00'>13:00</option><option value='13:30'>13:30</option><option value='14:00'>14:00</option><option value='14:30'>14:30</option><option value='15:00'>15:00</option><option value='15:30'>15:30</option>            </select>
+        </td>
+        <td class="timer">
+            <select name="tues_end_time" id="tues_end_time" >
+                <option value="16:00">End Time</option>
+                <option value='7:30'>7:30</option><option value='8:00'>8:00</option><option value='8:30'>8:30</option><option value='9:00'>9:00</option><option value='9:30'>9:30</option><option value='10:00'>10:00</option><option value='10:30'>10:30</option><option value='11:00'>11:00</option><option value='11:30'>11:30</option><option value='12:00'>12:00</option><option value='12:30'>12:30</option><option value='13:00'>13:00</option><option value='13:30'>13:30</option><option value='14:00'>14:00</option><option value='14:30'>14:30</option><option value='15:00'>15:00</option><option value='15:30'>15:30</option><option value='16:00'>16:00</option>          </select>
+        </td>
+    </tr>
+    <!-- END OF TUESDAY WORK TIME-->
+    <!-- WEDNESDAY WORK TIME-->
+    <tr>
+        <td>
+            <span class='chboxcol'><input type="checkbox" name="parttime[]"  value="Wednesday"></span>
+        </td>
+        <td class='day'> Wednesday</td>
+        <td class='timer'>
+            <select name="wed_start_time" id="wed_start_time">
+                <option value="7:00">Start Time</option>
+                <option value='7:00'>7:00</option><option value='7:30'>7:30</option><option value='8:00'>8:00</option><option value='8:30'>8:30</option><option value='9:00'>9:00</option><option value='9:30'>9:30</option><option value='10:00'>10:00</option><option value='10:30'>10:30</option><option value='11:00'>11:00</option><option value='11:30'>11:30</option><option value='12:00'>12:00</option><option value='12:30'>12:30</option><option value='13:00'>13:00</option><option value='13:30'>13:30</option><option value='14:00'>14:00</option><option value='14:30'>14:30</option><option value='15:00'>15:00</option><option value='15:30'>15:30</option>            </select>
+        </td>
+        <td class="timer">
+            <select name="wed_end_time" id="wed_end_time">
+                <option value="16:00">End Time</option>
+                <option value='7:30'>7:30</option><option value='8:00'>8:00</option><option value='8:30'>8:30</option><option value='9:00'>9:00</option><option value='9:30'>9:30</option><option value='10:00'>10:00</option><option value='10:30'>10:30</option><option value='11:00'>11:00</option><option value='11:30'>11:30</option><option value='12:00'>12:00</option><option value='12:30'>12:30</option><option value='13:00'>13:00</option><option value='13:30'>13:30</option><option value='14:00'>14:00</option><option value='14:30'>14:30</option><option value='15:00'>15:00</option><option value='15:30'>15:30</option><option value='16:00'>16:00</option>          </select>
+        </td>
+   </tr>
+    <!-- END OF WEDNESDAY WORK TIME-->
+    <!-- THURSDAY WORK TIME-->
+    <tr>
+        <td>
+            <span class='chboxcol'><input type="checkbox" name="parttime[]"  value="Thursday"></span>
+        </td>
+        <td class='day'> Thursday</td>
+        <td class='timer'>
+            <select name="thurs_start_time" id="thurs_start_time">
+                <option value="7:00">Start Time</option>
+                <option value='7:00'>7:00</option><option value='7:30'>7:30</option><option value='8:00'>8:00</option><option value='8:30'>8:30</option><option value='9:00'>9:00</option><option value='9:30'>9:30</option><option value='10:00'>10:00</option><option value='10:30'>10:30</option><option value='11:00'>11:00</option><option value='11:30'>11:30</option><option value='12:00'>12:00</option><option value='12:30'>12:30</option><option value='13:00'>13:00</option><option value='13:30'>13:30</option><option value='14:00'>14:00</option><option value='14:30'>14:30</option><option value='15:00'>15:00</option><option value='15:30'>15:30</option>            </select>
+        </td>
+        <td class="timer">
+            <select name="thurs_end_time" id="thurs_end_time" >
+                <option value="16:00">End Time</option>
+                <option value='7:30'>7:30</option><option value='8:00'>8:00</option><option value='8:30'>8:30</option><option value='9:00'>9:00</option><option value='9:30'>9:30</option><option value='10:00'>10:00</option><option value='10:30'>10:30</option><option value='11:00'>11:00</option><option value='11:30'>11:30</option><option value='12:00'>12:00</option><option value='12:30'>12:30</option><option value='13:00'>13:00</option><option value='13:30'>13:30</option><option value='14:00'>14:00</option><option value='14:30'>14:30</option><option value='15:00'>15:00</option><option value='15:30'>15:30</option><option value='16:00'>16:00</option>          </select>
+        </td>
+    </tr>
+    <!-- END OF THURSDAY WORK TIME-->
+    <!-- FRIDAY WORK TIME-->
+    <tr>
+        <td>
+            <span class='chboxcol'><input type="checkbox" name="parttime[]"  value="Friday"></span>
+        </td>
+        <td class='day'> Friday</td>
+        <td class='timer'>
+            <select name="fri_start_time" id="fri_start_time" >
+                <option value="7:00">Start Time</option>
+                <option value='7:00'>7:00</option><option value='7:30'>7:30</option><option value='8:00'>8:00</option><option value='8:30'>8:30</option><option value='9:00'>9:00</option><option value='9:30'>9:30</option><option value='10:00'>10:00</option><option value='10:30'>10:30</option><option value='11:00'>11:00</option><option value='11:30'>11:30</option><option value='12:00'>12:00</option><option value='12:30'>12:30</option><option value='13:00'>13:00</option><option value='13:30'>13:30</option><option value='14:00'>14:00</option><option value='14:30'>14:30</option><option value='15:00'>15:00</option><option value='15:30'>15:30</option>            </select>
+        </td>
+        <td class="timer">
+            <select name="fri_end_time" id="fri_end_time" >
+                <option value="16:00">End Time</option>
+                <option value='7:30'>7:30</option><option value='8:00'>8:00</option><option value='8:30'>8:30</option><option value='9:00'>9:00</option><option value='9:30'>9:30</option><option value='10:00'>10:00</option><option value='10:30'>10:30</option><option value='11:00'>11:00</option><option value='11:30'>11:30</option><option value='12:00'>12:00</option><option value='12:30'>12:30</option><option value='13:00'>13:00</option><option value='13:30'>13:30</option><option value='14:00'>14:00</option><option value='14:30'>14:30</option><option value='15:00'>15:00</option><option value='15:30'>15:30</option><option value='16:00'>16:00</option>          </select>
+        </td>
+    </tr>
+    <!-- END OF FRIDAY WORK TIME-->
+
+</table> <!-- end of table id="work_hr_table" -->
+
+
+
+
+                                    </div>  <!-- end of parttimer -->
+                                </div>      <!-- end of to_hide_workhrs -->
+                            </td>           <!-- end of <td colspan="2"> -->
+                        </tr>
+
+                    </table>
+
+                </div>
+                <div id="locationtab" class="locationtab">
+                    <table id="location_table">
+                        <tr><td colspan="2" class="heading1">Location Availability: Sites available to work, check all that apply.</td></tr>
+                        <tr><td colspan="2"></td></tr>
+                        <tr>
+                            <td colspan="2">
+                                <div style="color:blue; font-size:10px;"><sup>s</sup> Special Education program. Handicapped Learner endorsement preferred, but not required for substituting.</div>
+                                <div style="color:blue; font-size:10px;"><sup>a</sup> Alternative Education program.</div>
+                                <div style="color:blue; font-size:10px;"><sup>b</sup> Bloodborne Pathogen Class Registration Required</div>
+                                <div style="color:black; font-size:10px;"><br>Site address will show when your cursor is moved over each site</div>
+                            </td>
+                        </tr>
+                        <tr><td colspan="2"></td></tr>
+                        <tr>
+                            <td colspan="2"><div class='all_dist_sch'><div class='dist_75' id='dist_75'><span class='heading'><input type='checkbox' id='ch_dist_75' name='ch_dist_75' value='Multnomah Education Service District'  onclick = 'div_hide_all_schs(75);'></span>   Multnomah Education Service District</div> <div class='all_programs_75' id='all_programs_75'><div class='prg_1'><span class='chboxcol'><input type='checkbox' name='prgname[]'value='Early Childhood Special Education Pre-K (MECP) Ages 0-5' onclick = 'div_hide_all_programsites(1);'></span> &nbsp; <span>Early Childhood Special Education Pre-K (MECP) Ages 0-5<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></span></div><div class='all_program_site_1' id='all_program_site_1'><table id='program_1' cellpadding='2' cellspacing='1' border='1'><tr class='even'><td class='chboxcol'><input type='checkbox' id='all_prgsite_1' name='all_prgsite_1' value='all_prgsite_1' onclick = 'check_all_programsites(1);'></td><td colspan='3'>Select all programs for Early Childhood Special Education Pre-K (MECP) Ages 0-5</td></tr><tr class='odd'><td class='chboxcol' title ='7650 N Commercial St, Portland, OR, Phone: 503-916-6240'><input  type='checkbox' name='sitename[]' value='15_Applegate Elem RM 10'></td><td title ='7650 N Commercial St, Portland, OR, Phone: 503-916-6240'>Applegate Elem RM 10<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td><td class='chboxcol' title ='8401 S.W. 17th Av, Portland, OR, Phone: (503) 916-6303'><input  type='checkbox' name='sitename[]' value='11_Capitol Hill Elem RM 107'></td><td title ='8401 S.W. 17th Av, Portland, OR, Phone: (503) 916-6303'>Capitol Hill Elem RM 107<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='even'><td class='chboxcol' title ='15600 SE 232 Dr, Damascus, OR, Phone: (503) 658-3184'><input  type='checkbox' name='sitename[]' value='2_Deep Creek Elem'></td><td title ='15600 SE 232 Dr, Damascus, OR, Phone: (503) 658-3184'>Deep Creek Elem<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td><td class='chboxcol' title ='10822 SE Bush St, Portland, OR, Phone: (503) 256-6554'><input  type='checkbox' name='sitename[]' value='52_Earl Boyles Elem RM 3'></td><td title ='10822 SE Bush St, Portland, OR, Phone: (503) 256-6554'>Earl Boyles Elem RM 3<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='odd'><td class='chboxcol' title ='3119 SE Holgate Blvd, Portland, OR, Phone: (503)-916-6209'><input  type='checkbox' name='sitename[]' value='12_Grout Elem RM C'></td><td title ='3119 SE Holgate Blvd, Portland, OR, Phone: (503)-916-6209'>Grout Elem RM C<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td><td class='chboxcol' title ='2505 NE 23 St, Gresham, OR, Phone: (503) 661-6330'><input  type='checkbox' name='sitename[]' value='4_Hall Elem RM 20'></td><td title ='2505 NE 23 St, Gresham, OR, Phone: (503) 661-6330'>Hall Elem RM 20<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='even'><td class='chboxcol' title ='13200 SE Lincoln St, Portland, OR, Phone: (503) 256-6504'><input  type='checkbox' name='sitename[]' value='6_Lincoln Park, RM 5'></td><td title ='13200 SE Lincoln St, Portland, OR, Phone: (503) 256-6504'>Lincoln Park, RM 5<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td><td class='chboxcol' title ='7334 NE Siskiyou St, Portland, OR, Phone: (503) 916-5600'><input  type='checkbox' name='sitename[]' value='17_Roseway Heights'></td><td title ='7334 NE Siskiyou St, Portland, OR, Phone: (503) 916-5600'>Roseway Heights<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='odd'><td class='chboxcol' title ='3701 NE 131st  Pl, Portland, OR, Phone: (503) 408-2850'><input  type='checkbox' name='sitename[]' value='8_Shaver Elem RM 9'></td><td title ='3701 NE 131st  Pl, Portland, OR, Phone: (503) 408-2850'>Shaver Elem RM 9<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td><td class='chboxcol' title ='5208 NE 122nd Ave, Portland, OR, Phone: (503) 261-5535'><input  type='checkbox' name='sitename[]' value='1_Thompson Center'></td><td title ='5208 NE 122nd Ave, Portland, OR, Phone: (503) 261-5535'>Thompson Center<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='even'><td class='chboxcol' title ='7900 SE Duke St., Portland, OR, Phone: (503) 916-6373'><input  type='checkbox' name='sitename[]' value='20_Woodmere Elem, Portable 4'></td><td title ='7900 SE Duke St., Portland, OR, Phone: (503) 916-6373'>Woodmere Elem, Portable 4<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td></table></div><div class='prg_2'><span class='chboxcol'><input type='checkbox' name='prgname[]'value='Functional Living Skills (FLS) Ages 6-21' onclick = 'div_hide_all_programsites(2);'></span> &nbsp; <span>Functional Living Skills (FLS) Ages 6-21<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></span></div><div class='all_program_site_2' id='all_program_site_2'><table id='program_2' cellpadding='2' cellspacing='1' border='1'><tr class='even'><td class='chboxcol'><input type='checkbox' id='all_prgsite_2' name='all_prgsite_2' value='all_prgsite_2' onclick = 'check_all_programsites(2);'></td><td colspan='3'>Select all programs for Functional Living Skills (FLS) Ages 6-21</td></tr><tr class='odd'><td class='chboxcol' title ='2470 SW Halsey, Troutdale, OR, Phone: (503) 262-4850'><input  type='checkbox' name='sitename[]' value='28_Arata Creek MS/HS RM 101'></td><td title ='2470 SW Halsey, Troutdale, OR, Phone: (503) 262-4850'>Arata Creek MS/HS RM 101<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td><td class='chboxcol' title ='3503 SE 182nd, Gresham, OR, Phone: (503) 762-6180'><input  type='checkbox' name='sitename[]' value='23_Centennial HS RM 137'></td><td title ='3503 SE 182nd, Gresham, OR, Phone: (503) 762-6180'>Centennial HS RM 137<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='even'><td class='chboxcol' title ='35800 E Hist Columbia River Hw, Corbett, OR, Phone: (503) 261-4236'><input  type='checkbox' name='sitename[]' value='46_Corbett Grade'></td><td title ='35800 E Hist Columbia River Hw, Corbett, OR, Phone: (503) 261-4236'>Corbett Grade<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td><td class='chboxcol' title ='1500 SE 130th, Portland, OR, Phone: 503-261-8372'><input  type='checkbox' name='sitename[]' value='22_David Douglas HS RM 234'></td><td title ='1500 SE 130th, Portland, OR, Phone: 503-261-8372'>David Douglas HS RM 234<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='odd'><td class='chboxcol' title ='19501 NE Davis St, Portland, OR, Phone: (503)665-9193'><input  type='checkbox' name='sitename[]' value='29_Davis Elem RM 133'></td><td title ='19501 NE Davis St, Portland, OR, Phone: (503)665-9193'>Davis Elem RM 133<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td><td class='chboxcol' title ='1400 SE 5 ST, Gresham, OR, Phone: (503)665-0148'><input  type='checkbox' name='sitename[]' value='27_Dexter McCarty MS'></td><td title ='1400 SE 5 ST, Gresham, OR, Phone: (503)665-0148'>Dexter McCarty MS<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='even'><td class='chboxcol' title ='1200 N Main St, Gresham, OR, Phone: (503) 674-5500'><input  type='checkbox' name='sitename[]' value='25_Gresham HS'></td><td title ='1200 N Main St, Gresham, OR, Phone: (503) 674-5500'>Gresham HS<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td><td class='chboxcol' title ='2400 SE Baker Way, Gresham, OR, Phone: (503) 663-7483'><input  type='checkbox' name='sitename[]' value='31_Kelly Creek Elem'></td><td title ='2400 SE Baker Way, Gresham, OR, Phone: (503) 663-7483'>Kelly Creek Elem<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='odd'><td class='chboxcol' title ='15840 SE Taylor St, Portland, OR, Phone: (503) 762-3207'><input  type='checkbox' name='sitename[]' value='30_Oliver Elem RM 67'></td><td title ='15840 SE Taylor St, Portland, OR, Phone: (503) 762-3207'>Oliver Elem RM 67<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td><td class='chboxcol' title ='611 E Powell Blvd, Gresham, OR, Phone: (503) 262-4000'><input  type='checkbox' name='sitename[]' value='24_Pathways AIM MS/HS'></td><td title ='611 E Powell Blvd, Gresham, OR, Phone: (503) 262-4000'>Pathways AIM MS/HS<sup><font color='#0000FF'>a</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='even'><td class='chboxcol' title ='611 E Powell Blvd, Gresham, OR, Phone: (503) 262-4000'><input  type='checkbox' name='sitename[]' value='44_Pathways HS Alt 1'></td><td title ='611 E Powell Blvd, Gresham, OR, Phone: (503) 262-4000'>Pathways HS Alt 1<sup><font color='#0000FF'>a</font></sup><sup><font color='#0000FF'>b</font></sup></td><td class='chboxcol' title ='611 E Powell Blvd, Gresham, OR, Phone: (503) 262-4000'><input  type='checkbox' name='sitename[]' value='39_Pathways MS Alt'></td><td title ='611 E Powell Blvd, Gresham, OR, Phone: (503) 262-4000'>Pathways MS Alt<sup><font color='#0000FF'>a</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='odd'><td class='chboxcol' title ='611 E Powell Blvd, Gresham, OR, Phone: (503) 262-4000'><input  type='checkbox' name='sitename[]' value='43_Pathways TRANS Age 18-21'></td><td title ='611 E Powell Blvd, Gresham, OR, Phone: (503) 262-4000'>Pathways TRANS Age 18-21<sup><font color='#0000FF'>a</font></sup><sup><font color='#0000FF'>b</font></sup></td><td class='chboxcol' title ='1200 NE 201 ST, Fairview, OR, Phone: (503) 665-8166'><input  type='checkbox' name='sitename[]' value='47_Reynolds MS RM 610'></td><td title ='1200 NE 201 ST, Fairview, OR, Phone: (503) 665-8166'>Reynolds MS RM 610<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='even'><td class='chboxcol' title ='1200 NE 201st, Fairview, OR, Phone: 665-8166x3575'><input  type='checkbox' name='sitename[]' value='26_Reynolds MS RM 613'></td><td title ='1200 NE 201st, Fairview, OR, Phone: 665-8166x3575'>Reynolds MS RM 613<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td><td class='chboxcol' title ='1210 NE 201st Ave, Fairview, OR, Phone: (503) 492-7260'><input  type='checkbox' name='sitename[]' value='48_Salish Pond Elem RM 17'></td><td title ='1210 NE 201st Ave, Fairview, OR, Phone: (503) 492-7260'>Salish Pond Elem RM 17<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='odd'><td class='chboxcol' title ='611 E Powell Blvd, Gresham, OR, Phone: (503) 262-4000'><input  type='checkbox' name='sitename[]' value='42_Transitions Age 18-21'></td><td title ='611 E Powell Blvd, Gresham, OR, Phone: (503) 262-4000'>Transitions Age 18-21<sup><font color='#0000FF'>a</font></sup><sup><font color='#0000FF'>b</font></sup></td><td class='chboxcol' title ='145 SE 117th Ave, Portland, OR, Phone: (503) 256-6508'><input  type='checkbox' name='sitename[]' value='32_Ventura Elem RM 9'></td><td title ='145 SE 117th Ave, Portland, OR, Phone: (503) 256-6508'>Ventura Elem RM 9<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='even'><td class='chboxcol' title ='21607 NE Glisan, Fairview, OR, Phone: (503) 674-8188'><input  type='checkbox' name='sitename[]' value='33_Woodland Elem'></td><td title ='21607 NE Glisan, Fairview, OR, Phone: (503) 674-8188'>Woodland Elem<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td></table></div><div class='prg_3'><span class='chboxcol'><input type='checkbox' name='prgname[]'value='Social-Emotional Skills Program K-12 (SESP)' onclick = 'div_hide_all_programsites(3);'></span> &nbsp; <span>Social-Emotional Skills Program K-12 (SESP)<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>a</font></sup><sup><font color='#0000FF'>b</font></sup></span></div><div class='all_program_site_3' id='all_program_site_3'><table id='program_3' cellpadding='2' cellspacing='1' border='1'><tr class='even'><td class='chboxcol'><input type='checkbox' id='all_prgsite_3' name='all_prgsite_3' value='all_prgsite_3' onclick = 'check_all_programsites(3);'></td><td colspan='3'>Select all programs for Social-Emotional Skills Program K-12 (SESP)</td></tr><tr class='odd'><td class='chboxcol' title ='2470 SW Halsey, Troutdale, OR, Phone: (503) 262-4850'><input  type='checkbox' name='sitename[]' value='34_Arata Creek'></td><td title ='2470 SW Halsey, Troutdale, OR, Phone: (503) 262-4850'>Arata Creek</td><td class='chboxcol' title ='930 NE 162nd, Portland, OR, Phone: 503-262-4200'><input  type='checkbox' name='sitename[]' value='35_Wynne Watts'></td><td title ='930 NE 162nd, Portland, OR, Phone: 503-262-4200'>Wynne Watts</td></tr></table></div><div class='prg_4'><span class='chboxcol'><input type='checkbox' name='prgname[]'value='Alternative Education Schools 6-12' onclick = 'div_hide_all_programsites(4);'></span> &nbsp; <span>Alternative Education Schools 6-12<sup><font color='#0000FF'>a</font></sup><sup><font color='#0000FF'>b</font></sup></span></div><div class='all_program_site_4' id='all_program_site_4'><table id='program_4' cellpadding='2' cellspacing='1' border='1'><tr class='even'><td class='chboxcol'><input type='checkbox' id='all_prgsite_4' name='all_prgsite_4' value='all_prgsite_4' onclick = 'check_all_programsites(4);'></td><td colspan='3'>Select all programs for Alternative Education Schools 6-12</td></tr><tr class='odd'><td class='chboxcol' title ='876 NE 8 ST, Gresham, OR, Phone: (503) 262-4050'><input  type='checkbox' name='sitename[]' value='38_MESD Alpha HS'></td><td title ='876 NE 8 ST, Gresham, OR, Phone: (503) 262-4050'>MESD Alpha HS</td><td class='chboxcol' title ='8678 NE Sumner ST, Portland, OR, Phone: (503) 262-4150'><input  type='checkbox' name='sitename[]' value='37_MESD Helensview'></td><td title ='8678 NE Sumner ST, Portland, OR, Phone: (503) 262-4150'>MESD Helensview</td></tr></table></div></div><div class='dist_28' id='dist_28'><span class='heading'><input type='checkbox' id='ch_dist_28' name='ch_dist_28' value='Centennial School District'  onclick = 'div_hide_all_schs(28);'></span>   Centennial School District</div> <div class='all_schs_28' id='all_schs_28'><table id='schs_dist28' cellpadding='2' cellspacing='1' border='1' width='100%'>
+<tr class='even'><td class='chboxcol'><input type='checkbox' id='all_sch_28' name='all_sch_28' value='all_sch_28' onclick = 'check_all_schs(28);'></td><td colspan='3'>Select all schools for Centennial School District</td></tr><tr class='odd'><td class='chboxcol' title ='2789 SW Butler Rd, Gresham, OR, Phone: (503) 762-6100'>
+                    <input type='checkbox' name='schname[]' value='407_Butler Creek'></td><td title ='2789 SW Butler Rd, Gresham, OR, Phone: (503) 762-6100'>Butler Creek K-6</td></tr><tr class='even'><td class='chboxcol' title ='18009 SE Brooklyn St, Portland, OR, Phone: (503) 762-3208'>
+                    <input type='checkbox' name='schname[]' value='94_Lynch Meadows'></td><td title ='18009 SE Brooklyn St, Portland, OR, Phone: (503) 762-3208'>Lynch Meadows K-6</td></tr><tr class='odd'><td class='chboxcol' title ='1546 SE 169th PL, Portland, OR, Phone: (503) 762-3203'>
+                    <input type='checkbox' name='schname[]' value='95_Lynch View'></td><td title ='1546 SE 169th PL, Portland, OR, Phone: (503) 762-3203'>Lynch View K-6</td></tr><tr class='even'><td class='chboxcol' title ='3615 SE 174th St., Portland, OR, Phone: (503) 762-3204'>
+                    <input type='checkbox' name='schname[]' value='96_Lynch Wood'></td><td title ='3615 SE 174th St., Portland, OR, Phone: (503) 762-3204'>Lynch Wood K-6</td></tr><tr class='odd'><td class='chboxcol' title ='15811 SE Main St, Portland, OR, Phone: (503) 762-3205'>
+                    <input type='checkbox' name='schname[]' value='66_Parklane'></td><td title ='15811 SE Main St, Portland, OR, Phone: (503) 762-3205'>Parklane K-6</td></tr><tr class='even'><td class='chboxcol' title ='17625 SE Foster Rd, Portland, OR, Phone: (503) 762-3209'>
+                    <input type='checkbox' name='schname[]' value='114_Pleasant Valley'></td><td title ='17625 SE Foster Rd, Portland, OR, Phone: (503) 762-3209'>Pleasant Valley K-6</td></tr><tr class='odd'><td class='chboxcol' title ='15840 SE Taylor St, Portland, OR, Phone: (503) 762-3207'>
+                    <input type='checkbox' name='schname[]' value='67_Oliver'></td><td title ='15840 SE Taylor St, Portland, OR, Phone: (503) 762-3207'>Oliver K-6</td></tr><tr class='even'><td class='chboxcol' title ='17650 SE Brooklyn St, Portland, OR, Phone: (503) 762-3206'>
+                    <input type='checkbox' name='schname[]' value='25_Centennial MS'></td><td title ='17650 SE Brooklyn St, Portland, OR, Phone: (503) 762-3206'>Centennial MS 7-8</td></tr><tr class='odd'><td class='chboxcol' title ='17630 SE Main, Portland, OR, Phone: (503) 762-3202'>
+                    <input type='checkbox' name='schname[]' value='26_Centennial Learning Center'></td><td title ='17630 SE Main, Portland, OR, Phone: (503) 762-3202'>Centennial Learning Center 7-12<sup><font color='#0000FF'>a</font></sup></td></tr><tr class='even'><td class='chboxcol' title ='3503 SE 182nd, Gresham, OR, Phone: (503) 762-6180'>
+                    <input type='checkbox' name='schname[]' value='24_Centennial HS'></td><td title ='3503 SE 182nd, Gresham, OR, Phone: (503) 762-6180'>Centennial HS 9-12</td></tr><tr class='odd'><td class='chboxcol' title ='18135 SE Brooklyn, Portland, OR, Phone: (503) 760-7990'>
+                    <input type='checkbox' name='schname[]' value='2440_Transitions Center'></td><td title ='18135 SE Brooklyn, Portland, OR, Phone: (503) 760-7990'>Transitions Center 9-12<sup><font color='#0000FF'>a</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr></table></div><div class='dist_38' id='dist_38'><span class='heading'><input type='checkbox' id='ch_dist_38' name='ch_dist_38' value='Corbett Charter School'  onclick = 'div_hide_all_schs(38);'></span>   Corbett Charter School</div> <div class='all_schs_38' id='all_schs_38'><table id='schs_dist38' cellpadding='2' cellspacing='1' border='1' width='100%'>
+<tr class='even'><td class='chboxcol'><input type='checkbox' id='all_sch_38' name='all_sch_38' value='all_sch_38' onclick = 'check_all_schs(38);'></td><td colspan='3'>Select all schools for Corbett Charter School</td></tr><tr class='odd'><td class='chboxcol' title ='35800 E Hist Columbia River Hw, Corbett, OR, Phone: (503)261-4221'>
+                    <input type='checkbox' name='schname[]' value='2505_Corbett Charter School'></td><td title ='35800 E Hist Columbia River Hw, Corbett, OR, Phone: (503)261-4221'>Corbett Charter School K-12</td></tr></table></div><div class='dist_39' id='dist_39'><span class='heading'><input type='checkbox' id='ch_dist_39' name='ch_dist_39' value='Corbett School District'  onclick = 'div_hide_all_schs(39);'></span>   Corbett School District</div> <div class='all_schs_39' id='all_schs_39'><table id='schs_dist39' cellpadding='2' cellspacing='1' border='1' width='100%'>
+<tr class='even'><td class='chboxcol'><input type='checkbox' id='all_sch_39' name='all_sch_39' value='all_sch_39' onclick = 'check_all_schs(39);'></td><td colspan='3'>Select all schools for Corbett School District</td></tr><tr class='odd'><td class='chboxcol' title ='35800 E Hist Columbia River Hw, Corbett, OR, Phone: (503) 261-4236'>
+                    <input type='checkbox' name='schname[]' value='34_Corbett Grade'></td><td title ='35800 E Hist Columbia River Hw, Corbett, OR, Phone: (503) 261-4236'>Corbett Grade K-6</td></tr><tr class='even'><td class='chboxcol' title ='35800 E Hist Columbia River Hw, Corbett, OR, Phone: (503) 261-4226'>
+                    <input type='checkbox' name='schname[]' value='36_Corbett MS/HS'></td><td title ='35800 E Hist Columbia River Hw, Corbett, OR, Phone: (503) 261-4226'>Corbett MS/HS 7-12</td></tr></table></div><div class='dist_40' id='dist_40'><span class='heading'><input type='checkbox' id='ch_dist_40' name='ch_dist_40' value='David Douglas School District'  onclick = 'div_hide_all_schs(40);'></span>   David Douglas School District</div> <div class='all_schs_40' id='all_schs_40'><table id='schs_dist40' cellpadding='2' cellspacing='1' border='1' width='100%'>
+<tr class='even'><td class='chboxcol'><input type='checkbox' id='all_sch_40' name='all_sch_40' value='all_sch_40' onclick = 'check_all_schs(40);'></td><td colspan='3'>Select all schools for David Douglas School District</td></tr><tr class='odd'><td class='chboxcol' title ='1400 SE 135th Ave, Portland, OR, Phone: 503-261-8470'>
+                    <input type='checkbox' name='schname[]' value='2441_North Powellhurst'></td><td title ='1400 SE 135th Ave, Portland, OR, Phone: 503-261-8470'>North Powellhurst K</td></tr><tr class='even'><td class='chboxcol' title ='2200 SE 122nd Ave, Portland, OR, Phone: (503)256-6549'>
+                    <input type='checkbox' name='schname[]' value='2515_Student Evaluation Center'></td><td title ='2200 SE 122nd Ave, Portland, OR, Phone: (503)256-6549'>Student Evaluation Center Ages 18-21<sup><font color='#0000FF'>a</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='odd'><td class='chboxcol' title ='1930 SE 104th Ave, Portland, OR, Phone: (503) 256-6501'>
+                    <input type='checkbox' name='schname[]' value='28_Cherry Park'></td><td title ='1930 SE 104th Ave, Portland, OR, Phone: (503) 256-6501'>Cherry Park K-5</td></tr><tr class='even'><td class='chboxcol' title ='10822 SE Bush St, Portland, OR, Phone: (503) 256-6554'>
+                    <input type='checkbox' name='schname[]' value='383_Earl Boyles'></td><td title ='10822 SE Bush St, Portland, OR, Phone: (503) 256-6554'>Earl Boyles K-5</td></tr><tr class='odd'><td class='chboxcol' title ='12839 SE Holgate  Blvd, Portland, OR, Phone: (503) 256-6502'>
+                    <input type='checkbox' name='schname[]' value='55_Gilbert Heights'></td><td title ='12839 SE Holgate  Blvd, Portland, OR, Phone: (503) 256-6502'>Gilbert Heights K-5</td></tr><tr class='even'><td class='chboxcol' title ='13132 SE Ramona St, Portland, OR, Phone: (503) 256-6531'>
+                    <input type='checkbox' name='schname[]' value='56_Gilbert Park'></td><td title ='13132 SE Ramona St, Portland, OR, Phone: (503) 256-6531'>Gilbert Park K-5</td></tr><tr class='odd'><td class='chboxcol' title ='13200 SE Lincoln St, Portland, OR, Phone: (503) 256-6504'>
+                    <input type='checkbox' name='schname[]' value='92_Lincoln Park'></td><td title ='13200 SE Lincoln St, Portland, OR, Phone: (503) 256-6504'>Lincoln Park K-5</td></tr><tr class='even'><td class='chboxcol' title ='12900 NE Glisan St, Portland, OR, Phone: (503) 256-6506'>
+                    <input type='checkbox' name='schname[]' value='105_Menlo Park'></td><td title ='12900 NE Glisan St, Portland, OR, Phone: (503) 256-6506'>Menlo Park K-5</td></tr><tr class='odd'><td class='chboxcol' title ='1900 SE 117th Ave, Portland, OR, Phone: (503) 256-6507'>
+                    <input type='checkbox' name='schname[]' value='106_Mill Park'></td><td title ='1900 SE 117th Ave, Portland, OR, Phone: (503) 256-6507'>Mill Park K-5</td></tr><tr class='even'><td class='chboxcol' title ='145 SE 117th Ave, Portland, OR, Phone: (503) 256-6508'>
+                    <input type='checkbox' name='schname[]' value='144_Ventura Park'></td><td title ='145 SE 117th Ave, Portland, OR, Phone: (503) 256-6508'>Ventura Park K-5</td></tr><tr class='odd'><td class='chboxcol' title ='2921 SE 116th Ave, Portland, OR, Phone: (503) 256-6509'>
+                    <input type='checkbox' name='schname[]' value='150_West Powelhurst'></td><td title ='2921 SE 116th Ave, Portland, OR, Phone: (503) 256-6509'>West Powelhurst K-5</td></tr><tr class='even'><td class='chboxcol' title ='12500 SE Ramona St, Portland, OR, Phone: (503) 256-6510'>
+                    <input type='checkbox' name='schname[]' value='6_Alice Ott MS'></td><td title ='12500 SE Ramona St, Portland, OR, Phone: (503) 256-6510'>Alice Ott MS 6-8</td></tr><tr class='odd'><td class='chboxcol' title ='10800 SE Washington St, Portland, OR, Phone: (503)-256-6511'>
+                    <input type='checkbox' name='schname[]' value='51_Floyd Light MS'></td><td title ='10800 SE Washington St, Portland, OR, Phone: (503)-256-6511'>Floyd Light MS 6-8</td></tr><tr class='even'><td class='chboxcol' title ='3955 SE 112th, Portland, OR, Phone: (503) 256-6519'>
+                    <input type='checkbox' name='schname[]' value='463_Ron Russell MS'></td><td title ='3955 SE 112th, Portland, OR, Phone: (503) 256-6519'>Ron Russell MS 6-8</td></tr><tr class='odd'><td class='chboxcol' title ='1001 SE 135th Ave, Portland, OR, Phone: (503) 261-8300'>
+                    <input type='checkbox' name='schname[]' value='39_David Douglas HS'></td><td title ='1001 SE 135th Ave, Portland, OR, Phone: (503) 261-8300'>David Douglas HS 9-12</td></tr><tr class='even'><td class='chboxcol' title ='11215 SE Market St, Portland, OR, Phone: (503) 256-6530'>
+                    <input type='checkbox' name='schname[]' value='2_Fir Ridge Campus'></td><td title ='11215 SE Market St, Portland, OR, Phone: (503) 256-6530'>Fir Ridge Campus 9-12<sup><font color='#0000FF'>a</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr></table></div><div class='dist_10' id='dist_10'><span class='heading'><input type='checkbox' id='ch_dist_10' name='ch_dist_10' value='Gresham-Barlow School District'  onclick = 'div_hide_all_schs(10);'></span>   Gresham-Barlow School District</div> <div class='all_schs_10' id='all_schs_10'><table id='schs_dist10' cellpadding='2' cellspacing='1' border='1' width='100%'>
+<tr class='even'><td class='chboxcol'><input type='checkbox' id='all_sch_10' name='all_sch_10' value='all_sch_10' onclick = 'check_all_schs(10);'></td><td colspan='3'>Select all schools for Gresham-Barlow School District</td></tr><tr class='odd'><td class='chboxcol' title ='900 SE 5th St, Gresham, OR, Phone: (503) 661-6050'>
+                    <input type='checkbox' name='schname[]' value='44_East Gresham'></td><td title ='900 SE 5th St, Gresham, OR, Phone: (503) 661-6050'>East Gresham K-5</td></tr><tr class='even'><td class='chboxcol' title ='7431 SE 302nd, Gresham, OR, Phone: (503) 663-4818'>
+                    <input type='checkbox' name='schname[]' value='45_East Orient'></td><td title ='7431 SE 302nd, Gresham, OR, Phone: (503) 663-4818'>East Orient K-5</td></tr><tr class='odd'><td class='chboxcol' title ='2505 NE 23 St, Gresham, OR, Phone: (503) 661-6330'>
+                    <input type='checkbox' name='schname[]' value='65_Hall'></td><td title ='2505 NE 23 St, Gresham, OR, Phone: (503) 661-6330'>Hall K-5</td></tr><tr class='even'><td class='chboxcol' title ='295 NE 24 St, Gresham, OR, Phone: (503) 665-7158'>
+                    <input type='checkbox' name='schname[]' value='72_Highland'></td><td title ='295 NE 24 St, Gresham, OR, Phone: (503) 665-7158'>Highland K-5</td></tr><tr class='odd'><td class='chboxcol' title ='1770 SE Fleming AV, Gresham, OR, Phone: (503) 261-4500'>
+                    <input type='checkbox' name='schname[]' value='379_Hogan Cedars'></td><td title ='1770 SE Fleming AV, Gresham, OR, Phone: (503) 261-4500'>Hogan Cedars K-5</td></tr><tr class='even'><td class='chboxcol' title ='505 SW Birdsdale Dr, Gresham, OR, Phone: (503) 661-6226'>
+                    <input type='checkbox' name='schname[]' value='73_Hollydale'></td><td title ='505 SW Birdsdale Dr, Gresham, OR, Phone: (503) 661-6226'>Hollydale K-5</td></tr><tr class='odd'><td class='chboxcol' title ='2400 SE Baker Way, Gresham, OR, Phone: (503) 663-7483'>
+                    <input type='checkbox' name='schname[]' value='83_Kelly Creek'></td><td title ='2400 SE Baker Way, Gresham, OR, Phone: (503) 663-7483'>Kelly Creek K-5</td></tr><tr class='even'><td class='chboxcol' title ='1001 SE 217 AV, Gresham, OR, Phone: (503) 661-6415'>
+                    <input type='checkbox' name='schname[]' value='110_North Gresham'></td><td title ='1001 SE 217 AV, Gresham, OR, Phone: (503) 661-6415'>North Gresham K-5</td></tr><tr class='odd'><td class='chboxcol' title ='4825 SE Powell Valley Road, Gresham, OR, Phone: (503) 661-1510'>
+                    <input type='checkbox' name='schname[]' value='117_Powell Valley'></td><td title ='4825 SE Powell Valley Road, Gresham, OR, Phone: (503) 661-1510'>Powell Valley K-5</td></tr><tr class='even'><td class='chboxcol' title ='330 W Powell Blvd, Gresham, OR, Phone: (503) 661-0144'>
+                    <input type='checkbox' name='schname[]' value='148_West Gresham'></td><td title ='330 W Powell Blvd, Gresham, OR, Phone: (503) 661-0144'>West Gresham K-5</td></tr><tr class='odd'><td class='chboxcol' title ='14151 SE 242nd, Boring, OR, Phone: (503) 658-3171'>
+                    <input type='checkbox' name='schname[]' value='38_Damascus'></td><td title ='14151 SE 242nd, Boring, OR, Phone: (503) 658-3171'>Damascus 5-8</td></tr><tr class='even'><td class='chboxcol' title ='219 NE 219 AV, Gresham, OR, Phone: (503) 492-6700'>
+                    <input type='checkbox' name='schname[]' value='32_Clear Creek'></td><td title ='219 NE 219 AV, Gresham, OR, Phone: (503) 492-6700'>Clear Creek 6-8</td></tr><tr class='odd'><td class='chboxcol' title ='1400 SE 5 ST, Gresham, OR, Phone: (503)665-0148'>
+                    <input type='checkbox' name='schname[]' value='42_Dexter McCarty'></td><td title ='1400 SE 5 ST, Gresham, OR, Phone: (503)665-0148'>Dexter McCarty 6-8</td></tr><tr class='even'><td class='chboxcol' title ='3625 E Powell Valley Road, Gresham, OR, Phone: (503) 667-6900'>
+                    <input type='checkbox' name='schname[]' value='59_Gordan Russell'></td><td title ='3625 E Powell Valley Road, Gresham, OR, Phone: (503) 667-6900'>Gordan Russell 6-8</td></tr><tr class='odd'><td class='chboxcol' title ='29805 SE Orient Drive, Gresham, OR, Phone: (503) 663-3323'>
+                    <input type='checkbox' name='schname[]' value='149_West Orient'></td><td title ='29805 SE Orient Drive, Gresham, OR, Phone: (503) 663-3323'>West Orient 6-8</td></tr><tr class='even'><td class='chboxcol' title =', , , Phone: '>
+                    <input type='checkbox' name='schname[]' value='471_Adult Living Program'></td><td title =', , , Phone: '>Adult Living Program 9-12</td></tr><tr class='odd'><td class='chboxcol' title ='1484 NW Civic Drive, Gresham, OR, Phone: (503)667-49-78'>
+                    <input type='checkbox' name='schname[]' value='2516_Center for Advanced Learning CAL Subs'></td><td title ='1484 NW Civic Drive, Gresham, OR, Phone: (503)667-49-78'>Center for Advanced Learning CAL Subs 9-12<sup><font color='#0000FF'>b</font></sup></td></tr><tr class='even'><td class='chboxcol' title ='1200 N Main St, Gresham, OR, Phone: (503) 674-5500'>
+                    <input type='checkbox' name='schname[]' value='63_Gresham High School'></td><td title ='1200 N Main St, Gresham, OR, Phone: (503) 674-5500'>Gresham High School 9-12</td></tr><tr class='odd'><td class='chboxcol' title ='5105 SE 302 AV, Gresham, OR, Phone: (503) 258-4850'>
+                    <input type='checkbox' name='schname[]' value='13_Sam Barlow'></td><td title ='5105 SE 302 AV, Gresham, OR, Phone: (503) 258-4850'>Sam Barlow 9-12</td></tr><tr class='even'><td class='chboxcol' title ='1440 SE Fleming Avenue, Gresham, OR, Phone: (503) 261-4600'>
+                    <input type='checkbox' name='schname[]' value='382_Springwater Trail'></td><td title ='1440 SE Fleming Avenue, Gresham, OR, Phone: (503) 261-4600'>Springwater Trail 9-12</td></tr><tr class='odd'><td class='chboxcol' title ='1440 SE Fleming Avenue, Gresham, OR, Phone: (503)667-4669'>
+                    <input type='checkbox' name='schname[]' value='2518_Structure Skills Center'></td><td title ='1440 SE Fleming Avenue, Gresham, OR, Phone: (503)667-4669'>Structure Skills Center K-12<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='even'><td class='chboxcol' title ='15600 SE 232 Dr, Damascus, OR, Phone: (503) 658-3184'>
+                    <input type='checkbox' name='schname[]' value='41_Deep Creek'></td><td title ='15600 SE 232 Dr, Damascus, OR, Phone: (503) 658-3184'>Deep Creek K-5</td></tr><tr class='odd'><td class='chboxcol' title ='5039 SE Chase Road, Gresham, OR, Phone: (503)663-5422'>
+                    <input type='checkbox' name='schname[]' value='2519_Student Support Services'></td><td title ='5039 SE Chase Road, Gresham, OR, Phone: (503)663-5422'>Student Support Services Ages 18-21<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr></table></div><div class='dist_3' id='dist_3'><span class='heading'><input type='checkbox' id='ch_dist_3' name='ch_dist_3' value='Parkrose School District'  onclick = 'div_hide_all_schs(3);'></span>   Parkrose School District</div> <div class='all_schs_3' id='all_schs_3'><table id='schs_dist3' cellpadding='2' cellspacing='1' border='1' width='100%'>
+<tr class='even'><td class='chboxcol'><input type='checkbox' id='all_sch_3' name='all_sch_3' value='all_sch_3' onclick = 'check_all_schs(3);'></td><td colspan='3'>Select all schools for Parkrose School District</td></tr><tr class='odd'><td class='chboxcol' title ='10410 NE Prescott St, Portland, OR, Phone: (503) 408-2150'>
+                    <input type='checkbox' name='schname[]' value='118_Prescott'></td><td title ='10410 NE Prescott St, Portland, OR, Phone: (503) 408-2150'>Prescott K-5</td></tr><tr class='even'><td class='chboxcol' title ='2700 NE 127th AV, Portland, OR, Phone: (503) 408-2750'>
+                    <input type='checkbox' name='schname[]' value='129_Russell Academy'></td><td title ='2700 NE 127th AV, Portland, OR, Phone: (503) 408-2750'>Russell Academy K-5</td></tr><tr class='odd'><td class='chboxcol' title ='11400 NE Sacramento St, Portland, OR, Phone: (503) 408-2800'>
+                    <input type='checkbox' name='schname[]' value='131_Sacramento'></td><td title ='11400 NE Sacramento St, Portland, OR, Phone: (503) 408-2800'>Sacramento K-5</td></tr><tr class='even'><td class='chboxcol' title ='3701 NE 131st  Pl, Portland, OR, Phone: (503) 408-2850'>
+                    <input type='checkbox' name='schname[]' value='134_Shaver'></td><td title ='3701 NE 131st  Pl, Portland, OR, Phone: (503) 408-2850'>Shaver K-5</td></tr><tr class='odd'><td class='chboxcol' title ='11800 NE Shaver  St, Portland, OR, Phone: (503) 408-2900'>
+                    <input type='checkbox' name='schname[]' value='112_Parkrose MS'></td><td title ='11800 NE Shaver  St, Portland, OR, Phone: (503) 408-2900'>Parkrose MS 6-8</td></tr><tr class='even'><td class='chboxcol' title ='12003 NE Shaver St., Portland, OR, Phone: (503) 408-2600'>
+                    <input type='checkbox' name='schname[]' value='113_Parkrose HS'></td><td title ='12003 NE Shaver St., Portland, OR, Phone: (503) 408-2600'>Parkrose HS 9-12</td></tr></table></div><div class='dist_77' id='dist_77'><span class='heading'><input type='checkbox' id='ch_dist_77' name='ch_dist_77' value='Reynolds School District'  onclick = 'div_hide_all_schs(77);'></span>   Reynolds School District</div> <div class='all_schs_77' id='all_schs_77'><table id='schs_dist77' cellpadding='2' cellspacing='1' border='1' width='100%'>
+<tr class='even'><td class='chboxcol'><input type='checkbox' id='all_sch_77' name='all_sch_77' value='all_sch_77' onclick = 'check_all_schs(77);'></td><td colspan='3'>Select all schools for Reynolds School District<br><div style='margin-left:12px;text-indent:0px'>(Minimum of 72 hours college credits, an Associate's degree or a WorkKeys Proficiency Exam Certificate required to work as an Educational Assistant)</div></td></tr><tr class='odd'><td class='chboxcol' title ='17200 SE Alder St, Portland, OR, Phone: (503) 255-4673'>
+                    <input type='checkbox' name='schname[]' value='5_Alder'></td><td title ='17200 SE Alder St, Portland, OR, Phone: (503) 255-4673'>Alder K-5</td></tr><tr class='even'><td class='chboxcol' title ='19501 NE Davis St, Portland, OR, Phone: (503)665-9193'>
+                    <input type='checkbox' name='schname[]' value='40_Davis'></td><td title ='19501 NE Davis St, Portland, OR, Phone: (503)665-9193'>Davis K-5</td></tr><tr class='odd'><td class='chboxcol' title ='225 Main St, Fairview, OR, Phone: (503) 667-2954'>
+                    <input type='checkbox' name='schname[]' value='47_Fairview'></td><td title ='225 Main St, Fairview, OR, Phone: (503) 667-2954'>Fairview K-5</td></tr><tr class='even'><td class='chboxcol' title ='15300 NE Glisan St, Portland, OR, Phone: (503) 252-3479'>
+                    <input type='checkbox' name='schname[]' value='58_Glenfair'></td><td title ='15300 NE Glisan St, Portland, OR, Phone: (503) 252-3479'>Glenfair K-5</td></tr><tr class='odd'><td class='chboxcol' title ='701 NE 185th Pl, Portland, OR, Phone: (503) 665-0134'>
+                    <input type='checkbox' name='schname[]' value='68_Hartley'></td><td title ='701 NE 185th Pl, Portland, OR, Phone: (503) 665-0134'>Hartley K-5</td></tr><tr class='even'><td class='chboxcol' title ='1210 NE 201st Ave, Fairview, OR, Phone: (503) 492-7260'>
+                    <input type='checkbox' name='schname[]' value='408_Salish Ponds'></td><td title ='1210 NE 201st Ave, Fairview, OR, Phone: (503) 492-7260'>Salish Ponds K-5</td></tr><tr class='odd'><td class='chboxcol' title ='14700 NE Sacramento, Portland, OR, Phone: (503) 255-2031'>
+                    <input type='checkbox' name='schname[]' value='100_Scott'></td><td title ='14700 NE Sacramento, Portland, OR, Phone: (503) 255-2031'>Scott K-5</td></tr><tr class='even'><td class='chboxcol' title ='501 SE Sweetbriar LN, Troutdale, OR, Phone: (503) 666-9441'>
+                    <input type='checkbox' name='schname[]' value='140_Sweetbriar'></td><td title ='501 SE Sweetbriar LN, Troutdale, OR, Phone: (503) 666-9441'>Sweetbriar K-5</td></tr><tr class='odd'><td class='chboxcol' title ='648 SE Harlow, Troutdale, OR, Phone: (503)665-4182'>
+                    <input type='checkbox' name='schname[]' value='142_Troutdale'></td><td title ='648 SE Harlow, Troutdale, OR, Phone: (503)665-4182'>Troutdale K-5</td></tr><tr class='even'><td class='chboxcol' title ='17020 NE Wilkes Rd, Portland, OR, Phone: (503) 255-6133'>
+                    <input type='checkbox' name='schname[]' value='156_Wilkes'></td><td title ='17020 NE Wilkes Rd, Portland, OR, Phone: (503) 255-6133'>Wilkes K-5</td></tr><tr class='odd'><td class='chboxcol' title ='21607 NE Glisan, Fairview, OR, Phone: (503) 674-8188'>
+                    <input type='checkbox' name='schname[]' value='158_Woodland'></td><td title ='21607 NE Glisan, Fairview, OR, Phone: (503) 674-8188'>Woodland K-5</td></tr><tr class='even'><td class='chboxcol' title ='14513 SE Stark, Portland, OR, Phone: (503) 328-0420'>
+                    <input type='checkbox' name='schname[]' value='1128_Four Corners'></td><td title ='14513 SE Stark, Portland, OR, Phone: (503) 328-0420'>Four Corners K-6<sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='odd'><td class='chboxcol' title ='1200 NE 201 ST, Fairview, OR, Phone: (503) 665-8166'>
+                    <input type='checkbox' name='schname[]' value='120_Reynolds MS'></td><td title ='1200 NE 201 ST, Fairview, OR, Phone: (503) 665-8166'>Reynolds MS 6-8</td></tr><tr class='even'><td class='chboxcol' title ='2801 SE Lucas, Troutdale, OR, Phone: (503) 491-1935'>
+                    <input type='checkbox' name='schname[]' value='152_Walt Morey MS'></td><td title ='2801 SE Lucas, Troutdale, OR, Phone: (503) 491-1935'>Walt Morey MS 6-8</td></tr><tr class='odd'><td class='chboxcol' title ='1698 SW Cherry Park Road, Troutdale, OR, Phone: (503) 667-3186'>
+                    <input type='checkbox' name='schname[]' value='119_Reynolds HS'></td><td title ='1698 SW Cherry Park Road, Troutdale, OR, Phone: (503) 667-3186'>Reynolds HS 9-12</td></tr><tr class='even'><td class='chboxcol' title ='2408 SW Halsey St. #J, Troutdale, OR, Phone: 503-912-1576'>
+                    <input type='checkbox' name='schname[]' value='2442_Reynolds Learning Academy East'></td><td title ='2408 SW Halsey St. #J, Troutdale, OR, Phone: 503-912-1576'>Reynolds Learning Academy East 9-12<sup><font color='#0000FF'>a</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='odd'><td class='chboxcol' title ='20234 NE Halsey, Fairview, OR, Phone: (503) 667-4673'>
+                    <input type='checkbox' name='schname[]' value='126_Reynolds Learning Academy West'></td><td title ='20234 NE Halsey, Fairview, OR, Phone: (503) 667-4673'>Reynolds Learning Academy West 9-12<sup><font color='#0000FF'>a</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='even'><td class='chboxcol' title ='18201 SE Stark St., Portland, Or, Phone: 503 907-1023'>
+                    <input type='checkbox' name='schname[]' value='2549_Reynolds Knova Learning K-6'></td><td title ='18201 SE Stark St., Portland, Or, Phone: 503 907-1023'>Reynolds Knova Learning K-6  <sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr><tr class='odd'><td class='chboxcol' title ='22565 NE  Halsey St, Fairview, OR, Phone: 503 405-7868'>
+                    <input type='checkbox' name='schname[]' value='992_Reynolds Multisensory Learning Academy'></td><td title ='22565 NE  Halsey St, Fairview, OR, Phone: 503 405-7868'>Reynolds Multisensory Learning Academy  <sup><font color='#0000FF'>s</font></sup><sup><font color='#0000FF'>b</font></sup></td></tr></table></div><div class='dist_51' id='dist_51'><span class='heading'><input type='checkbox' id='ch_dist_51' name='ch_dist_51' value='Riverdale School District'  onclick = 'div_hide_all_schs(51);'></span>   Riverdale School District</div> <div class='all_schs_51' id='all_schs_51'><table id='schs_dist51' cellpadding='2' cellspacing='1' border='1' width='100%'>
+<tr class='even'><td class='chboxcol'><input type='checkbox' id='all_sch_51' name='all_sch_51' value='all_sch_51' onclick = 'check_all_schs(51);'></td><td colspan='3'>Select all schools for Riverdale School District</td></tr><tr class='odd'><td class='chboxcol' title ='11733 SW Breyman AV, Portland, OR, Phone: (503)262-4842'>
+                    <input type='checkbox' name='schname[]' value='124_Riverdale Elementary'></td><td title ='11733 SW Breyman AV, Portland, OR, Phone: (503)262-4842'>Riverdale Elementary K-8</td></tr><tr class='even'><td class='chboxcol' title ='9727 SW Terwilliger Blvd., Portland, OR, Phone: (503) 262-4844'>
+                    <input type='checkbox' name='schname[]' value='125_Riverdale High School'></td><td title ='9727 SW Terwilliger Blvd., Portland, OR, Phone: (503) 262-4844'>Riverdale High School 9-12</td></tr></table></div></div></td>
+                        </tr>
+                        <tr><td><br><br>
+If you are unfamiliar where some of these site locations are,<br>click here for Multnomah ESD’s boundary map:<br><br><a href='http://www.mesd.k12.or.us/comm/MESDDistrictMapBook2010.pdf' target="_blank">http://www.mesd.k12.or.us/comm/MESDDistrictMapBook2010.pdf</a>
+                        </td></tr>
+                    </table>
+                </div>
+
+                <div id="subjecttab" class="subjecttab">
+                    <table id="subject_availaility_table">
+
+                        <tr><td colspan="2" class="heading1">Subject Availability: If you will work in any subject below, check all that apply.</td></tr>
+                        <tr><td colspan="2"></td></tr>
+                        <tr>
+                            <td colspan="2">
+                                <div style="color:blue; font-size:10px;"><sup>b</sup>Bloodborne Pathogen Class Registration Required</div>
+                                <div style="color:blue; font-size:10px;"><sup>i</sup>Must be interviewed before can substitute for position and may require additional certification clearances</div>
+                            </td>
+                        </tr>
+                        <tr><td colspan="2"> &nbsp; &nbsp; </td></tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <div class="all_100" id = "all_100"><span class='chboxcol'><input type="checkbox" id="chBx_100" name="chBx_100" value="all_100"></span>
+                                  &nbsp;All Nurse Subjects
+                                </div>
+                                <div class="part_100" id="part_100"><table id='sub_nurse' cellpadding='2' cellspacing='1' border='1' width='100%' ><tr class='even'><td class='chboxcol'><input type='checkbox' id='all_chbx_100' name='all_chbx_100' value='all_chbx_100' onclick = 'check_all_subs(100);'></td><td colspan='3'>Select all subjects for Nurse/LPN </td></tr><tr class='odd'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='216_Licensed Practical Nurse'></td><td class='td_subject' colspan='3'>Licensed Practical Nurse<sup><font color='#0000FF'>i</font></sup></td></tr><tr class='even'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='225_Registered Nurse'></td><td class='td_subject' colspan='3'>Registered Nurse<sup><font color='#0000FF'>i</font></sup></td></tr><tr class='odd'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='226_Registered Nurse / Direct 1:1 Student Care'></td><td class='td_subject' colspan='3'>Registered Nurse / Direct 1:1 Student Care<sup><font color='#0000FF'>i</font></sup></td></tr></table></div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <div class="all_15" id = "all_15"><span class='chboxcol'><input type="checkbox" id="chBx_15" name="chBx_15" value="all_15"></span>
+                                 &nbsp;Classified
+                                    <span style="font-style: italic; color:blue; font-size:12px;">(Classified rates vary by district.)</span>
+                                </div>
+                                <div class="part_15" id="part_15"><table id='sub_class_assist' cellpadding='2' cellspacing='1' border='1' width='100%'>
+<tr class='even'><td class='chboxcol'><input type='checkbox' id='all_chbx_15' name='all_chbx_15' value='all_chbx_15' onclick = 'check_all_subs(15);'></td><td colspan='3'>Select all subjects for Classified </td></tr>
+<tr class='odd'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='186_Campus Safety Monitor'></td><td class='td_subject'>Campus Safety Monitor<sup><font color='#0000FF'>i</font></sup><sup><font color='#0000FF'>b</font></sup></td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='161_Daycare'></td><td class='td_subject'>Daycare</td></tr>
+<tr class='even'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='341_Educational Asst, ALT, Social Emotional'></td><td class='td_subject'>Educational Asst, ALT, Social Emotional<sup><font color='#0000FF'>b</font></sup></td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='284_Educational Asst, Regular Class'></td><td class='td_subject'>Educational Asst, Regular Class<sup><font color='#0000FF'>b</font></sup></td></tr>
+<tr class='odd'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='281_Educational Asst, Special Ed, Female'></td><td class='td_subject'>Educational Asst, Special Ed, Female<sup><font color='#0000FF'>b</font></sup></td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='283_Educational Asst, Special Ed, Female, Highly Qual'></td><td class='td_subject'>Educational Asst, Special Ed, Female, Highly Qual<sup><font color='#0000FF'>b</font></sup></td></tr>
+<tr class='even'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='282_Educational Asst, Special Ed, Male'></td><td class='td_subject'>Educational Asst, Special Ed, Male<sup><font color='#0000FF'>b</font></sup></td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='304_Educational Asst, Special Ed, Male, Highly Qual'></td><td class='td_subject'>Educational Asst, Special Ed, Male, Highly Qual<sup><font color='#0000FF'>b</font></sup></td></tr>
+<tr class='odd'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='218_Media Specialist/Library Asst 6-8'></td><td class='td_subject'>Media Specialist/Library Asst 6-8</td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='219_Media Specialist/Library Asst 9-12'></td><td class='td_subject'>Media Specialist/Library Asst 9-12</td></tr>
+<tr class='even'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='217_Media Specialist/Library Asst K-6'></td><td class='td_subject'>Media Specialist/Library Asst K-6</td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='220_Noon Asst'></td><td class='td_subject'>Noon Asst<sup><font color='#0000FF'>b</font></sup></td></tr>
+<tr class='odd'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='228_Secretary'></td><td class='td_subject'>Secretary<sup><font color='#0000FF'>b</font></sup></td></table></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="all_6" id = "all_6"><span class='chboxcol'><input type="checkbox" id="chBx_6" name="chBx_6" value="all_6"></span>
+                                 &nbsp;All Elementary areas K-6
+                                 </div>
+                                <div class="part_6" id="part_6"> <table id='sub_elemk6' cellpadding='2' cellspacing='1' border='1' width='100%' >
+<tr class='even'><td class='chboxcol'><input type='checkbox' id='all_chbx_6' name='all_chbx_6' value='all_chbx_6' onclick = 'check_all_subs(6);'></td><td colspan='3'>Select all subjects for Elementary areas K-6 </td></tr>
+<tr class='odd'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='26_ELL-English for Speakers of Other Languages'></td><td class='td_subject'>ELL-English for Speakers of Other Languages</td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='187_Elem 1st & 2nd Blend'></td><td class='td_subject'>Elem 1st &amp; 2nd Blend</td></tr>
+<tr class='even'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='188_Elem 2nd & 3rd Blend'></td><td class='td_subject'>Elem 2nd &amp; 3rd Blend</td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='201_Elem 3rd & 4th Blend'></td><td class='td_subject'>Elem 3rd &amp; 4th Blend</td></tr>
+<tr class='odd'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='202_Elem 4th & 5th Blend'></td><td class='td_subject'>Elem 4th &amp; 5th Blend</td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='203_Elem 5th & 6th Blend'></td><td class='td_subject'>Elem 5th &amp; 6th Blend</td></tr>
+<tr class='even'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='204_Elem K & 1st Blend'></td><td class='td_subject'>Elem K &amp; 1st Blend</td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='205_Elem K-3'></td><td class='td_subject'>Elem K-3</td></tr>
+<tr class='odd'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='206_Elem K-6'></td><td class='td_subject'>Elem K-6</td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='207_Elem/1st'></td><td class='td_subject'>Elem/1st</td></tr>
+<tr class='even'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='208_Elem/2nd'></td><td class='td_subject'>Elem/2nd</td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='209_Elem/3rd'></td><td class='td_subject'>Elem/3rd</td></tr>
+<tr class='odd'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='210_Elem/4th'></td><td class='td_subject'>Elem/4th</td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='211_Elem/5th'></td><td class='td_subject'>Elem/5th</td></tr>
+<tr class='even'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='212_Elem/6th'></td><td class='td_subject'>Elem/6th</td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='213_Elem/Kindergarden'></td><td class='td_subject'>Elem/Kindergarden</td></tr>
+<tr class='odd'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='84_Elementary 4-6'></td><td class='td_subject'>Elementary 4-6</td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='25_Elementary/Pre-K'></td><td class='td_subject'>Elementary/Pre-K</td></tr>
+<tr class='even'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='97_Media Specialist/Library'></td><td class='td_subject'>Media Specialist/Library</td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='36_Music, General'></td><td class='td_subject'>Music, General</td></tr>
+<tr class='odd'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='101_Music, Vocal'></td><td class='td_subject'>Music, Vocal</td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='124_Physical Ed'></td><td class='td_subject'>Physical Ed<sup><font color='#0000FF'>b</font></sup></td></tr>
+<tr class='even'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='126_Reading'></td><td class='td_subject'>Reading</td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='128_Resource Room'></td><td class='td_subject'>Resource Room<sup><font color='#0000FF'>b</font></sup></td></tr>
+<tr class='odd'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='241_Spanish/Bilingual'></td><td class='td_subject'>Spanish/Bilingual</td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='230_Speech/K-6'></td><td class='td_subject'>Speech/K-6</td></tr>
+<tr class='even'><td class='chboxcol'><input type='checkbox' name='subject[]'  value='136_TAG'></td><td class='td_subject'>TAG</td>
+<td class='chboxcol'><input type='checkbox' name='subject[]'  value='138_Title 1'></td><td class='td_subject'>Title 1</td></tr></table></div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="all_8" id = "all_8"><span class='chboxcol'><input type="checkbox" id="chBx_8" name="chBx_8" value="all_8"></span>
+                                 &nbsp;All Middle School areas 6-8
+                                </div>
+                                <div class="part_8" id="part_8"><table id='sub_k6k8' cellpadding='2' cellspacing='1' border='1' width='100%' >
+<tr class='even'><td class='chboxcol'><input type='checkbox' id='all_chbx_8' name='all_chbx_8' value='all_chbx_8' onclick = 'check_all_subs(8);'></td><td colspan='3'>Select all subjects for Middle School areas 6-8 </td></tr>
+<tr class='odd'><td class='chboxcol'><div class='subject_85'><input type='checkbox' name='subject[]'  value='85_All Middle School Subjects'></div></td><td class='td_subject'>All Middle School Subjects<sup><font color='#0000FF'>b</font></sup></td>
+<td class='chboxcol'><div class='subject_1'><input type='checkbox' name='subject[]'  value='1_Alternative Education'></div></td><td class='td_subject'>Alternative Education<sup><font color='#0000FF'>b</font></sup></td></tr>
+<tr class='even'><td class='chboxcol'><div class='subject_3'><input type='checkbox' name='subject[]'  value='3_Art, General'></div></td><td class='td_subject'>Art, General</td>
+<td class='chboxcol'><div class='subject_23'><input type='checkbox' name='subject[]'  value='23_Computer Education'></div></td><td class='td_subject'>Computer Education</td></tr>
+<tr class='odd'><td class='chboxcol'><div class='subject_24'><input type='checkbox' name='subject[]'  value='24_Drama'></div></td><td class='td_subject'>Drama</td>
+<td class='chboxcol'><div class='subject_86'><input type='checkbox' name='subject[]'  value='86_ELL-English for Speakers of Other Languages'></div></td><td class='td_subject'>ELL-English for Speakers of Other Languages</td></tr>
+<tr class='even'><td class='chboxcol'><div class='subject_29'><input type='checkbox' name='subject[]'  value='29_Family Consumer Education'></div></td><td class='td_subject'>Family Consumer Education<sup><font color='#0000FF'>b</font></sup></td>
+<td class='chboxcol'><div class='subject_88'><input type='checkbox' name='subject[]'  value='88_Foreign Language'></div></td><td class='td_subject'>Foreign Language</td></tr>
+<tr class='odd'><td class='chboxcol'><div class='subject_28'><input type='checkbox' name='subject[]'  value='28_Health'></div></td><td class='td_subject'>Health</td>
+<td class='chboxcol'><div class='subject_30'><input type='checkbox' name='subject[]'  value='30_Industrial Arts'></div></td><td class='td_subject'>Industrial Arts<sup><font color='#0000FF'>b</font></sup></td></tr>
+<tr class='even'><td class='chboxcol'><div class='subject_32'><input type='checkbox' name='subject[]'  value='32_Language Arts'></div></td><td class='td_subject'>Language Arts</td>
+<td class='chboxcol'><div class='subject_33'><input type='checkbox' name='subject[]'  value='33_Math, Advanced'></div></td><td class='td_subject'>Math, Advanced</td></tr>
+<tr class='odd'><td class='chboxcol'><div class='subject_121'><input type='checkbox' name='subject[]'  value='121_Math, Basic'></div></td><td class='td_subject'>Math, Basic</td>
+<td class='chboxcol'><div class='subject_35'><input type='checkbox' name='subject[]'  value='35_Media Specialist/Library'></div></td><td class='td_subject'>Media Specialist/Library</td></tr>
+<tr class='even'><td class='chboxcol'><div class='subject_37'><input type='checkbox' name='subject[]'  value='37_Music, Instrumental'></div></td><td class='td_subject'>Music, Instrumental</td>
+<td class='chboxcol'><div class='subject_38'><input type='checkbox' name='subject[]'  value='38_Music, Vocal'></div></td><td class='td_subject'>Music, Vocal</td></tr>
+<tr class='odd'><td class='chboxcol'><div class='subject_221'><input type='checkbox' name='subject[]'  value='221_PE Female'></div></td><td class='td_subject'>PE Female<sup><font color='#0000FF'>b</font></sup></td>
+<td class='chboxcol'><div class='subject_223'><input type='checkbox' name='subject[]'  value='223_PE Male'></div></td><td class='td_subject'>PE Male<sup><font color='#0000FF'>b</font></sup></td></tr>
+<tr class='even'><td class='chboxcol'><div class='subject_41'><input type='checkbox' name='subject[]'  value='41_Reading'></div></td><td class='td_subject'>Reading</td>
+<td class='chboxcol'><div class='subject_42'><input type='checkbox' name='subject[]'  value='42_Resource Room'></div></td><td class='td_subject'>Resource Room<sup><font color='#0000FF'>b</font></sup></td></tr>
+<tr class='odd'><td class='chboxcol'><div class='subject_44'><input type='checkbox' name='subject[]'  value='44_Science, Advanced'></div></td><td class='td_subject'>Science, Advanced<sup><font color='#0000FF'>b</font></sup></td>
+<td class='chboxcol'><div class='subject_45'><input type='checkbox' name='subject[]'  value='45_Science, General'></div></td><td class='td_subject'>Science, General<sup><font color='#0000FF'>b</font></sup></td></tr>
+<tr class='even'><td class='chboxcol'><div class='subject_46'><input type='checkbox' name='subject[]'  value='46_Social Studies'></div></td><td class='td_subject'>Social Studies</td>
+<td class='chboxcol'><div class='subject_229'><input type='checkbox' name='subject[]'  value='229_Spanish/Bilingual'></div></td><td class='td_subject'>Spanish/Bilingual</td></tr>
+<tr class='odd'><td class='chboxcol'><div class='subject_51'><input type='checkbox' name='subject[]'  value='51_Speech/Debate'></div></td><td class='td_subject'>Speech/Debate</td>
+<td class='chboxcol'><div class='subject_231'><input type='checkbox' name='subject[]'  value='231_Technology Education'></div></td><td class='td_subject'>Technology Education</td></tr>
+<tr class='even'><td class='chboxcol'><div class='subject_53'><input type='checkbox' name='subject[]'  value='53_Title 1'></div></td><td class='td_subject'>Title 1</td>
+<td class='chboxcol'><div class='subject_54'><input type='checkbox' name='subject[]'  value='54_Tutoring'></div></td><td class='td_subject'>Tutoring</td></tr></table></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="all_12" id = "all_12"><span class='chboxcol'><input type="checkbox" id="chBx_12" name="chBx_12" value="all_12"></span>
+                                  &nbsp;All High School areas 9-12
+                                </div>
+                                <div class="part_12" id="part_12"><table id='sub_k9k12' cellpadding='2' cellspacing='1' border='1' width='100%' ><tr class='even'>
+<td class='chboxcol'><input type='checkbox' id='all_chbx_12' name='all_chbx_12' value='all_chbx_12' onclick = 'check_all_subs(12);'></td><td colspan='3'>Select all subjects for High School areas 9-12 </td></tr>
+<tr class='odd'><td class='chboxcol'><div class='subject_290'><input type='checkbox' name='subject[]'  value='290_All High School Subjects'></div></td><td class='td_subject'>All High School Subjects<sup><font color='#0000FF'>b</font></sup></td>
+<td class='chboxcol'><div class='subject_61'><input type='checkbox' name='subject[]'  value='61_Alternative Education'></div></td><td class='td_subject'>Alternative Education<sup><font color='#0000FF'>b</font></sup></td></tr>
+<tr class='even'><td class='chboxcol'><div class='subject_62'><input type='checkbox' name='subject[]'  value='62_Art, General'></div></td><td class='td_subject'>Art, General</td>
+<td class='chboxcol'><div class='subject_81'><input type='checkbox' name='subject[]'  value='81_Business Education'></div></td><td class='td_subject'>Business Education</td></tr>
+<tr class='odd'><td class='chboxcol'><div class='subject_141'><input type='checkbox' name='subject[]'  value='141_Career Education'></div></td><td class='td_subject'>Career Education</td>
+<td class='chboxcol'><div class='subject_82'><input type='checkbox' name='subject[]'  value='82_Computer Education'></div></td><td class='td_subject'>Computer Education</td></tr>
+<tr class='even'><td class='chboxcol'><div class='subject_83'><input type='checkbox' name='subject[]'  value='83_Drama'></div></td><td class='td_subject'>Drama</td>
+<td class='chboxcol'><div class='subject_87'><input type='checkbox' name='subject[]'  value='87_ELL-English for Speakers of Other Languages'></div></td><td class='td_subject'>ELL-English for Speakers of Other Languages</td></tr>
+<tr class='odd'><td class='chboxcol'><div class='subject_91'><input type='checkbox' name='subject[]'  value='91_Family Consumer Education'></div></td><td class='td_subject'>Family Consumer Education<sup><font color='#0000FF'>b</font></sup></td>
+<td class='chboxcol'><div class='subject_89'><input type='checkbox' name='subject[]'  value='89_Foreign Language'></div></td><td class='td_subject'>Foreign Language</td></tr>
+<tr class='even'><td class='chboxcol'><div class='subject_90'><input type='checkbox' name='subject[]'  value='90_Health'></div></td><td class='td_subject'>Health</td>
+<td class='chboxcol'><div class='subject_92'><input type='checkbox' name='subject[]'  value='92_Industrial Arts'></div></td><td class='td_subject'>Industrial Arts<sup><font color='#0000FF'>b</font></sup></td></tr>
+<tr class='odd'><td class='chboxcol'><div class='subject_93'><input type='checkbox' name='subject[]'  value='93_Journalism'></div></td><td class='td_subject'>Journalism</td>
+<td class='chboxcol'><div class='subject_94'><input type='checkbox' name='subject[]'  value='94_Language Arts'></div></td><td class='td_subject'>Language Arts</td></tr>
+<tr class='even'><td class='chboxcol'><div class='subject_95'><input type='checkbox' name='subject[]'  value='95_Math, Advanced'></div></td><td class='td_subject'>Math, Advanced</td>
+<td class='chboxcol'><div class='subject_34'><input type='checkbox' name='subject[]'  value='34_Math, Basic'></div></td><td class='td_subject'>Math, Basic</td></tr>
+<tr class='odd'><td class='chboxcol'><div class='subject_96'><input type='checkbox' name='subject[]'  value='96_Media Specialist/Library'></div></td><td class='td_subject'>Media Specialist/Library</td>
+<td class='chboxcol'><div class='subject_98'><input type='checkbox' name='subject[]'  value='98_Music, Instrumental'></div></td><td class='td_subject'>Music, Instrumental</td></tr>
+<tr class='even'><td class='chboxcol'><div class='subject_100'><input type='checkbox' name='subject[]'  value='100_Music, Vocal'></div></td><td class='td_subject'>Music, Vocal</td>
+<td class='chboxcol'><div class='subject_222'><input type='checkbox' name='subject[]'  value='222_PE Female'></div></td><td class='td_subject'>PE Female<sup><font color='#0000FF'>b</font></sup></td></tr>
+<tr class='odd'><td class='chboxcol'><div class='subject_224'><input type='checkbox' name='subject[]'  value='224_PE Male'></div></td><td class='td_subject'>PE Male<sup><font color='#0000FF'>b</font></sup></td>
+<td class='chboxcol'><div class='subject_125'><input type='checkbox' name='subject[]'  value='125_Reading'></div></td><td class='td_subject'>Reading</td></tr>
+<tr class='even'><td class='chboxcol'><div class='subject_131'><input type='checkbox' name='subject[]'  value='131_Science, Advanced'></div></td><td class='td_subject'>Science, Advanced<sup><font color='#0000FF'>b</font></sup></td>
+<td class='chboxcol'><div class='subject_132'><input type='checkbox' name='subject[]'  value='132_Science, General'></div></td><td class='td_subject'>Science, General<sup><font color='#0000FF'>b</font></sup></td></tr>
+<tr class='odd'><td class='chboxcol'><div class='subject_133'><input type='checkbox' name='subject[]'  value='133_Social Studies'></div></td><td class='td_subject'>Social Studies</td>
+<td class='chboxcol'><div class='subject_242'><input type='checkbox' name='subject[]'  value='242_Spanish/Bilingual'></div></td><td class='td_subject'>Spanish/Bilingual</td></tr>
+<tr class='even'><td class='chboxcol'><div class='subject_134'><input type='checkbox' name='subject[]'  value='134_Speech/Debate'></div></td><td class='td_subject'>Speech/Debate</td>
+<td class='chboxcol'><div class='subject_232'><input type='checkbox' name='subject[]'  value='232_Technology Education'></div></td><td class='td_subject'>Technology Education</td></tr>
+<tr class='odd'><td class='chboxcol'><div class='subject_139'><input type='checkbox' name='subject[]'  value='139_Tutoring'></div></td><td class='td_subject'>Tutoring</td></table></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="all_1" id = "all_1"><span class='chboxcol'><input type="checkbox" id="chBx_1" name="chBx_1" value="all_1"></span>
+                                  &nbsp;All Special Education Programs
+                                </div>
+                                 <div>&nbsp;</div>
+                                <div class="part_1" id="part_1"><table id='sub_special_ed' cellpadding='2' cellspacing='1' border='1' width='100%' >
+<tr class='even'><td class='chboxcol'><input type='checkbox' id='all_chbx_1' name='all_chbx_1' value='all_chbx_1' onclick = 'check_all_subs(1);'></td><td colspan='3'>Select all subjects for Special Education Programs </td></tr>
+<tr class='odd'><td class='chboxcol'><div class='sp_ed_1'><input type='checkbox' name='subject[]'  value='48_Special Education/Early Childhood'></div></td><td class='td_subject'>Special Education/Early Childhood<sup><font color='#0000FF'>b</font></sup></td><td class='chboxcol'><div class='sp_ed_2'><input type='checkbox' name='subject[]'  value='49_Special Education/Multihandicapped'></div></td><td class='td_subject'>Special Education/Multihandicapped<sup><font color='#0000FF'>b</font></sup></td></tr>
+<tr class='even'><td class='chboxcol'><div class='sp_ed_3'><input type='checkbox' name='subject[]'  value='50_Special Education/Social Emotional Development'></div></td><td class='td_subject'>Special Education/Social Emotional Development<sup><font color='#0000FF'>b</font></sup></td></table></div>
+                                <div>&nbsp;</div>
+                            </td>
+                        </tr>
+
+                        <!-- /// -->
+
+                                                <tr>
+                            <td colspan="2"><input type="hidden" name= "form_secret" id="form_secret" value="d6e5d64d646ac2fa1d0a0bf001578add"></td>
+                        </tr>
+
+                        <!-- /// -->
+
+                    </table>
+                </div>
+
+                <div id="certtab" class="certtab">
+<!--
+                    <span class="chboxcol">
+<input type="checkbox" id="cert1" name="cert1"
+                                onClick='if (this.checked) {
+                                    jQuery("#invite").show();
+                                } else {
+                                    jQuery("#invite").hide();
+                                }'/>
+                                    </span>
+-->
+                    <span><b>MESD Invitation</b></span><br>
+                    <div id="invite" class="cert">
+                        I understand that the substitute positions for which I am applying are on-call positions and employment is on an "as needed" basis only with no guaranteed number of hours or days of employment and with no rights under any collective bargaining agreement. I further understand that employment with MESD calls for customary recess periods during the school year (Summer, Winter and Spring.) Following each of these periods, MESD expects that my relationship with the MESD as a substitute will continue. I will read the Board Policy in regards to the use of controlled substance and alcohol that is given to me in the email confirmation and I will comply with the policy.  I hereby certify that this application contains no misrepresentations or falsification and that the information given is true and complete to the best of my knowledge and belief. I understand that misrepresentation or omission of facts called for in this application is cause for cancellation of the application and/or dismissal from employment. I authorize the Multnomah Education Service District to make any necessary and appropriate investigations to verify the information contained herein and to do employment reference checks. I further understand that if I am selected as a finalist to be added to the substitute pool, that I will be required to present the district with an official set of fingerprints and the cost for processing those fingerprints must be paid at the time I am added to the substitute pool.<br><br>I have read the attached Board Policy regarding use of controlled substance and alcohol.
+                        <br>
+                        <span class="chboxcol"><input type="checkbox" id="cert_invite"/></span>
+                        By clicking "OK", I have read and understand the above information.<br><br>
+                    </div>
+<!--
+                    <span class="chboxcol"><input type="checkbox" id="cert2" name="cert2"
+                                onClick='if (this.checked) {
+                                    jQuery("#criminalrecord").show();
+                                } else {
+                                    jQuery("#criminalrecord").hide();
+                                }'/></span>
+-->
+                    <span><b>Criminal Record Check Statement</b></span><br>
+                    <div id="criminalrecord" class="cert">
+                        An application for employment is subject to a criminal records check, which may include fingerprint collection where appropriate, as required by law and MESD Board Policy. An applicant’s refusal to consent to a criminal records check, including fingerprint collection, will cause MESD to withdraw an offer of employment.<br><br>An applicant, who would otherwise be subject to fingerprint collection, may be exempt from the requirement where the applicant has successfully completed a criminal records check, which included fingerprint collection, under ORS 326.603 and has continuously resided in Oregon since completion of that records check. An applicant, who claims an exemption, has the burden  to provide MESD with evidence which supports the exemption. Any fees associated with the criminal records check, including fingerprinting, shall be the responsibility of the applicant. Such fees shall be paid at the time the criminal records check is collected.<br><br>The Oregon Department of Education (ODE) will review the fingerprint-based criminal records check, and notify MESD if a person may be employed. A person is not employable where ODE determines that the person has been convicted of a crime listed in ORS 342.143 or in OAR 581-22-716(9), or has made a false statement about the conviction of a crime. Where ODE notifies MESD that person is not employable, MESD will immediately terminate the employment. The person may appeal ODE’s determination to the Oregon Superintendent of Public Instruction as a contested case under ORS 183.413 to 183.470.<br><br>I acknowledge that I have not had any adverse action taken on a professional license, registration, or certification.  I also agree to notify MESD immediately if I become subject to any adverse action(s).
+                        <br>
+                        <span class="chboxcol"><input type="checkbox" id="cert_crim_chk" /></span>
+                        By clicking "OK", I have read and understand the above information.<br><br>
+                    </div>
+<!--
+                    <span class="chboxcol"><input type="checkbox" id="cert3" name="cert3"
+                                onClick='if (this.checked) {
+                                    jQuery("#workrisk").show();
+                                } else {
+                                    jQuery("#workrisk").hide();
+                                }'/></span>
+-->
+                    <span><b>Work Risk Statement</b></span><br>
+                    <div id="workrisk" class="cert">
+                        Work performed in any Special Education, Alternative Education, Social Emotional/Behavioral classroom environment; involves lifting students weighing up to 60-70 lbs., and may involve exposure to contagious germs, abusive student contacts, and other adverse conditions.
+                        <br>
+                        <span class="chboxcol">
+                        <input type="checkbox" id="cert_work_risk"/></span>
+                        By clicking "OK", I have read and understand the above information.<br><br>
+                    </div>
+<!--
+                    <span class="chboxcol">
+                        <input type="checkbox" id="cert4" name="cert4"
+                                onClick='if (this.checked) {
+                                    jQuery("#personalinfo").show();
+                                } else {
+                                    jQuery("#personalinfo").hide();
+                                }'/></span>
+-->
+<span><b>MESD Authorization to Use Personal Information</b></span><br>
+                    <div id="personalinfo" class="cert">
+                        By clicking "ok" you are authorizing MESD to use your personal information, including your social security number and date of birth for payroll and record keeping purposes as it administers Subfinder. Your personal information will not be disclosed for any other purpose.
+                        <br>
+                        <span class="chboxcol">
+                        <input type="checkbox" id="cert_mesd_auth"/></span>
+                        By clicking "OK", I have read and understand the above information.<br><br>
+                    </div>
+<!--
+                    <span class="chboxcol"><input type="checkbox" id="cert5" name="cert5"
+                                onClick='if (this.checked) {
+                                    jQuery("#age_ed").show();
+                                } else {
+                                    jQuery("#age_ed").hide();
+                                }'/></span>
+-->
+                    <span><b>Age and Education Certification</b></span><br>
+                    <div id="age_ed" class="cert">
+                        <ol>
+                            <li>I have a High School Diploma or G.E.D equivalent.</li>
+                            <li>I am at least 18 years of age and/or 21 years of age to apply for a Health Assistant position.</li>
+                        </ol>
+                        <span class="chboxcol">
+                        <input type="checkbox" id="cert_age_ed" /></span>
+                        By clicking "OK", I have read and am answering “Yes” to the above questions.<br><br>
+                    </div>
+                </div> <!--div id="certtab" class="certtab">
+            </div> <!--<div  class="tabs" id="tabs"> -->
+        </td> <!--<tdclass="middle_class""> -->
+        </tr>
+
+        <tr>
+            <td colspan="2" class ="footer_class">
+                <div ><span class="buttons"><input type="submit" name="submit_button" value="Submit" id="submit"></span></div>
+            </td>
+        </tr>
+      </table> <!-- end of table maintable -->
+    </form>
+    </body>
+</html>
+
+
+
+

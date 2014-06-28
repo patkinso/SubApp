@@ -18,8 +18,12 @@ SubFinder\AppBundle\Entity\Availability:
             type: time
 
     manyToOne:
-        applicant:
-            targetEntity: Applicant
+        # an Availability applies to one particular Application
+        application:
+            targetEntity: Application
             inversedBy: availability
+            nullable: false
+        #
         day:
             targetEntity: FlavorDay
+            nullable: false

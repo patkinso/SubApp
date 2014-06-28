@@ -29,3 +29,4 @@ SubFinder\AppBundle\Entity\License:
         applicant:
             targetEntity: Applicant
             inversedBy: license
+            nullable: false

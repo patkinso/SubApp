@@ -11,14 +11,25 @@ SubFinder\AppBundle\Entity\Application:
             generator:
                 strategy: AUTO
 
+    oneToMany:
+        # an Application must have at least one period of Availability
+        availability:
+            targetEntity: Availability
+            mappedBy: application
+            nullable: false
+
     manyToOne:
+        # an Application has exactly one Applicant
         applicant:
             targetEntity: Applicant
             inversedBy: application
+            nullable: false
 
     manyToMany:
+        # An Application must have at least one Site where work can be done
         site:
             targetEntity: Site
+            nullable: false
             joinTable:
                 name: applications_sites
                 joinColumns:
@@ -27,8 +38,10 @@ SubFinder\AppBundle\Entity\Application:
                 inverseJoinColumns:
                     site_id:
                         referencedColumnName: id
+        # An Application must have at least one Subject area in which work can be done
         subject:
             targetEntity: Subject
+            nullable: false
             joinTable:
                 name: applications_subjects
                 joinColumns:
@@ -37,8 +50,10 @@ SubFinder\AppBundle\Entity\Application:
                 inverseJoinColumns:
                     subject_id:
                         referencedColumnName: id
+        # An Application must be applying for at least one Position
         position:
             targetEntity: Position
+            nullable: false
             joinTable:
                 name: applications_positions
                 joinColumns:

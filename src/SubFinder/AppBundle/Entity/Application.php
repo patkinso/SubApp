@@ -15,6 +15,11 @@ class Application
     private $id;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $availability;
+
+    /**
      * @var \SubFinder\AppBundle\Entity\Applicant
      */
     private $applicant;
@@ -39,6 +44,7 @@ class Application
      */
     public function __construct()
     {
+        $this->availability = new \Doctrine\Common\Collections\ArrayCollection();
         $this->site = new \Doctrine\Common\Collections\ArrayCollection();
         $this->subject = new \Doctrine\Common\Collections\ArrayCollection();
         $this->position = new \Doctrine\Common\Collections\ArrayCollection();
@@ -52,6 +58,39 @@ class Application
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Add availability
+     *
+     * @param \SubFinder\AppBundle\Entity\Availability $availability
+     * @return Application
+     */
+    public function addAvailability(\SubFinder\AppBundle\Entity\Availability $availability)
+    {
+        $this->availability[] = $availability;
+
+        return $this;
+    }
+
+    /**
+     * Remove availability
+     *
+     * @param \SubFinder\AppBundle\Entity\Availability $availability
+     */
+    public function removeAvailability(\SubFinder\AppBundle\Entity\Availability $availability)
+    {
+        $this->availability->removeElement($availability);
+    }
+
+    /**
+     * Get availability
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAvailability()
+    {
+        return $this->availability;
     }
 
     /**

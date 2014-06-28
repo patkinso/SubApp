@@ -40,9 +40,9 @@ class Subject
     private $interviewRequired;
 
     /**
-     * @var \SubFinder\AppBundle\Entity\FlavorSubject
+     * @var \SubFinder\AppBundle\Entity\FlavorSubjectGroup
      */
-    private $area;
+    private $group;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -183,26 +183,26 @@ class Subject
     }
 
     /**
-     * Set area
+     * Set group
      *
-     * @param \SubFinder\AppBundle\Entity\FlavorSubject $area
+     * @param \SubFinder\AppBundle\Entity\FlavorSubjectGroup $group
      * @return Subject
      */
-    public function setArea(\SubFinder\AppBundle\Entity\FlavorSubject $area = null)
+    public function setGroup(\SubFinder\AppBundle\Entity\FlavorSubjectGroup $group = null)
     {
-        $this->area = $area;
+        $this->group = $group;
 
         return $this;
     }
 
     /**
-     * Get area
+     * Get group
      *
-     * @return \SubFinder\AppBundle\Entity\FlavorSubject 
+     * @return \SubFinder\AppBundle\Entity\FlavorSubjectGroup 
      */
-    public function getArea()
+    public function getGroup()
     {
-        return $this->area;
+        return $this->group;
     }
 
     /**

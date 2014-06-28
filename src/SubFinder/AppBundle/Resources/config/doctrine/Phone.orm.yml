@@ -16,8 +16,18 @@ SubFinder\AppBundle\Entity\Phone:
             lengeth: 16
 
     manyToOne:
+        # a Phone is a certain type of phone
         phoneType:
+            column: type
             targetEntity: FlavorPhone
+            nullable: false
+        # a Phone can be tied to an Applicant as the Applicant's phone
         applicant:
             targetEntity: Applicant
             inversedBy: phone
+            nullable: true
+        # a Phone can be tied to a Site as the Site's phone. A phone should only be tied to one or the other, not both.
+        site:
+            targetEntity: Applicant
+            inversedBy: phone
+            nullable: true

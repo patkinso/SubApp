@@ -5,9 +5,9 @@ namespace SubFinder\AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * FlavorSubject
+ * FlavorSubjectGroup
  */
-class FlavorSubject
+class FlavorSubjectGroup
 {
     /**
      * @var integer
@@ -34,7 +34,7 @@ class FlavorSubject
      * Set name
      *
      * @param string $name
-     * @return FlavorSubject
+     * @return FlavorSubjectGroup
      */
     public function setName($name)
     {

@@ -1,7 +1,7 @@
-SubFinder\AppBundle\Entity\FlavorSubject:
+SubFinder\AppBundle\Entity\FlavorSubjectGroup:
     type: entity
-    table: flavor_subject
-    repositoryClass: SubFinder\AppBundle\Repository\FlavorSubjectRepository
+    table: flavor_subject_group
+    repositoryClass: SubFinder\AppBundle\Repository\FlavorSubjectGroupRepository
 
     fields:
         id:

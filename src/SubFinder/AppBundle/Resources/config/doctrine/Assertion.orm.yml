@@ -16,7 +16,10 @@ SubFinder\AppBundle\Entity\Assertion:
             default: false
 
     manyToOne:
+        # an Assertion relates one Contract to one Application
         assertion:
-            targetEntity: FlavorAssertion
+            targetEntity: Contract
+            nullable: false
         application:
             targetEntity: Application
+            nullable: false

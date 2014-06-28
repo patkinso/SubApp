@@ -1,7 +1,7 @@
-SubFinder\AppBundle\Entity\FlavorAssertion:
+SubFinder\AppBundle\Entity\Contract:
     type: entity
-    table: flavor_assertion
-    repositoryClass: SubFinder\AppBundle\Repository\FlavorAssertionRepository
+    table: contract
+    repositoryClass: SubFinder\AppBundle\Repository\ContractRepository
 
     fields:
         id:
@@ -19,5 +19,4 @@ SubFinder\AppBundle\Entity\FlavorAssertion:
             type: text
         acceptText:
             column: accept_text
-            type: string
-            length: 128
+            type: text
