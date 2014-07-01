@@ -28,6 +28,6 @@ SubFinder\AppBundle\Entity\Phone:
             nullable: true
         # a Phone can be tied to a Site as the Site's phone. A phone should only be tied to one or the other, not both.
         site:
-            targetEntity: Applicant
+            targetEntity: Site
             inversedBy: phone
             nullable: true

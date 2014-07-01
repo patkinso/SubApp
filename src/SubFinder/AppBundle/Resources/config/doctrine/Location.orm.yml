@@ -18,6 +18,7 @@ SubFinder\AppBundle\Entity\Location:
             column: apt
             type: string
             length: 16
+            nullable: true
         city:
             column: city
             type: string

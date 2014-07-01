@@ -17,19 +17,15 @@ SubFinder\AppBundle\Entity\Subject:
         alternativeEducation:
             column: alternative_education
             type: boolean
-            default: integer(0)
         bloodbornePathogenClassRegistrationRequired:
             column: bbp_registration
             type: boolean
-            default: integer(0)
         specialEducation:
             column: special_education
             type: boolean
-            default: integer(0)
         interviewRequired:
             column: interview_required
             type: boolean
-            default: integer(0)
 
     manyToOne:
         # A Subject must belong to a Subject Group
@@ -43,8 +39,12 @@ SubFinder\AppBundle\Entity\Subject:
             joinTable:
                 name: subjects_positions
                 joinColumns:
-                    application_id:
-                        referencedColumnName: id
-                inverseJoinColumns:
                     subject_id:
                         referencedColumnName: id
+                inverseJoinColumns:
+                    position_id:
+                        referencedColumnName: id
+        # A Subject can be taught at many Sites
+        site:
+            targetEntity: Site
+            mappedBy: subject

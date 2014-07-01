@@ -237,4 +237,57 @@ class Subject
     {
         return $this->position;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $site;
+
+
+    /**
+     * Add site
+     *
+     * @param \SubFinder\AppBundle\Entity\Site $site
+     * @return Subject
+     */
+    public function addSite(\SubFinder\AppBundle\Entity\Site $site)
+    {
+        $this->site[] = $site;
+
+        return $this;
+    }
+
+    /**
+     * Remove site
+     *
+     * @param \SubFinder\AppBundle\Entity\Site $site
+     */
+    public function removeSite(\SubFinder\AppBundle\Entity\Site $site)
+    {
+        $this->site->removeElement($site);
+    }
+
+    /**
+     * Get site
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSite()
+    {
+        return $this->site;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $sites;
+
+
+    /**
+     * Get sites
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSites()
+    {
+        return $this->sites;
+    }
 }

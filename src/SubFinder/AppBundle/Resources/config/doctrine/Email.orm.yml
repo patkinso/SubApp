@@ -1,0 +1,29 @@
+SubFinder\AppBundle\Entity\Email:
+    type: entity
+    table: email
+    repositoryClass: SubFinder\AppBundle\Repository\EmailRepository
+
+    fields:
+        id:
+            column: id
+            type: bigint
+            id: true
+            generator:
+                strategy: AUTO
+        address:
+            column: address
+            type: string
+            length: 64
+            nullable: false
+
+    manyToOne:
+        # an Email can be tied to an Applicant as the Applicant's Email
+        applicant:
+            targetEntity: Applicant
+            inversedBy: email
+            nullable: true
+        # an Email can be tied to a Site as the Site's Email. An Email should only be tied to one or the other, not both.
+        site:
+            targetEntity: Site
+            inversedBy: email
+            nullable: true

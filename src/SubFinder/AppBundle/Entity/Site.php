@@ -287,4 +287,85 @@ class Site
     {
         return $this->position;
     }
+    /**
+     * @var string
+     */
+    private $gradeRange;
+
+
+    /**
+     * Set gradeRange
+     *
+     * @param string $gradeRange
+     * @return Site
+     */
+    public function setGradeRange($gradeRange)
+    {
+        $this->gradeRange = $gradeRange;
+
+        return $this;
+    }
+
+    /**
+     * Get gradeRange
+     *
+     * @return string 
+     */
+    public function getGradeRange()
+    {
+        return $this->gradeRange;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $subject;
+
+
+    /**
+     * Add subject
+     *
+     * @param \SubFinder\AppBundle\Entity\Subject $subject
+     * @return Site
+     */
+    public function addSubject(\SubFinder\AppBundle\Entity\Subject $subject)
+    {
+        $this->subject[] = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Remove subject
+     *
+     * @param \SubFinder\AppBundle\Entity\Subject $subject
+     */
+    public function removeSubject(\SubFinder\AppBundle\Entity\Subject $subject)
+    {
+        $this->subject->removeElement($subject);
+    }
+
+    /**
+     * Get subject
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSubject()
+    {
+        return $this->subject;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $subjects;
+
+
+    /**
+     * Get subjects
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSubjects()
+    {
+        return $this->subjects;
+    }
 }

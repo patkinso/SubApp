@@ -14,6 +14,10 @@ SubFinder\AppBundle\Entity\Site:
             column: name
             type: string
             length: 128
+        gradeRange:
+            column: grade_range
+            type: string
+            length: 64
         alternativeEducation:
             column: alternative_education
             type: boolean
@@ -44,14 +48,7 @@ SubFinder\AppBundle\Entity\Site:
             targetEntity: District
             mappedBy: site
             nullable: false
-        # a Site can have multiple openings for Positions
-        position:
-            targetEntity: Position
-            joinTable:
-                name: sites_positions
-                joinColumns:
-                    application_id:
-                        referencedColumnName: id
-                inverseJoinColumns:
-                    subject_id:
-                        referencedColumnName: id
+        # a Site has many Subjects taught at it
+        subject:
+            targetEntity: Subject
+            inversedBy: site
